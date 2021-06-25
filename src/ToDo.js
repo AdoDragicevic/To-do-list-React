@@ -59,12 +59,16 @@ class ToDo extends Component {
         this.setState({categories: ctgs});
     };
 
-    renderItems() {
-        const { categories, currCategory } = this.state;
-        let items = currCategory === "All" ? [] : categories[currCategory];
+    getItems() {
+        const { categories, currCategory, hideCompleted } = this.state;
+        const items = currCategory === "All" ? [] : categories[currCategory];
         if(currCategory === "All") {
             for(let key in categories) categories[key].forEach( item => items.push(item) );
         }
+        return hideCompleted ? items.filter( item => !item.isCompleted) : items; 
+    };
+
+    renderItems(items) {
         return items.map( item => (
             <Item 
                 item={item}
@@ -130,7 +134,7 @@ class ToDo extends Component {
                 />
                 
                 <ul className="ToDo-list">
-                    { this.renderItems() }
+                    { this.renderItems(this.getItems()) }
                 </ul>
 
                 {!noCategories && this.renderOptions()} 
