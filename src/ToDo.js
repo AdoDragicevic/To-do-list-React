@@ -20,14 +20,13 @@ class ToDo extends Component {
     addCategory(name) {
         const newCategories = { ...this.state.categories, [name]: [] };
         this.setState( {categories: newCategories, currCategory: name} );
-        console.log(this.state);
     };
 
     addItem(txt) {
         const item = { txt, id: uuidv4(), category: this.state.currCategory, isCompleted: false};
-        const newCategories = {...this.state.categories };
+        const newCategories = { ...this.state.categories };
         newCategories[this.state.currCategory].push(item);
-        this.setState({categories: newCategories});
+        this.setState( {categories: newCategories} );
     };
 
     getCategoryNames = () => {
@@ -51,11 +50,19 @@ class ToDo extends Component {
         this.setState({categories: ctgs});
     };
 
-    changeItem = (id, category, newTxt) => {
+    updateItem = (id, category, newTxt) => {
         const ctgs = {...this.state.categories};
         for(let i = 0; i < ctgs[category].length; i++) {
             if(ctgs[category][i].id === id) ctgs[category][i].txt = newTxt;
         }
+        this.setState({categories: ctgs});
+    };
+
+    completeItem = (id, category) => {
+        const ctgs = { ...this.state.categories };
+        ctgs[category].forEach( item => {
+            if(item.id === id) item.isCompleted = !item.isCompleted;
+        });
         this.setState({categories: ctgs});
     };
 
@@ -74,7 +81,8 @@ class ToDo extends Component {
                 item={item}
                 key={item.id}
                 delete={this.deleteItem}
-                change={this.changeItem}
+                change={this.updateItem}
+                complete={this.completeItem}
             />
         ));
     };
@@ -102,14 +110,12 @@ class ToDo extends Component {
                     onClick={this.hideCompleted}>
                     { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
                 </button>
-
-                {this.state.currCategory !== "All" &&
-                    <button
-                        className="ToDo-options__btn-delete"
-                        onClick={this.deleteCategory}>
-                        Delete Category
-                    </button>
-                }
+                { this.state.currCategory !== "All" &&
+                <button
+                    className="ToDo-options__btn-delete"
+                    onClick={this.deleteCategory}>
+                    Delete Category
+                </button> }
             </div>
         )
     };

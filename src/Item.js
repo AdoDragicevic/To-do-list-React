@@ -28,13 +28,18 @@ class Item extends Component {
         this.setState({inputVal: e.target.value});
     };
 
-    save = e => {
+    update = e => {
         e.preventDefault();
         const { id, category } = this.props.item;
         const { inputVal } = this.state;
         if(inputVal === this.props.item.txt) return;
         this.setState({isEditing: false});
         this.props.change(id, category, inputVal);
+    };
+
+    complete = e => {
+        const { id, category } = this.props.item;
+        this.props.complete(id, category);
     };
 
     renderForm() {
@@ -47,9 +52,9 @@ class Item extends Component {
                     onChange={this.change} 
                 />
                 <button
-                    className="ToDo-list__btn-save"
+                    className="ToDo-list__btn-update"
                     type="submit"
-                    onClick={this.save}>
+                    onClick={this.update}>
                     Save
                 </button>
                 <button
@@ -64,7 +69,9 @@ class Item extends Component {
     renderTxt() {
         return (
             <span>
-                <span className="ToDo-list__txt">
+                <span 
+                    className={ this.props.item.isCompleted ? "ToDo-list__txt--completed" : "ToDo-list__txt" }
+                    onClick={this.complete}>
                     {this.props.item.txt}
                 </span>
                 <button
