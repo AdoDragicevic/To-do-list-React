@@ -39,21 +39,21 @@ class Item extends Component {
 
     renderForm() {
         return (
-            <form className="Item-form">
+            <form className="ToDo-list__form">
                 <input
-                    className="Item-input"
+                    className="ToDo-list__input"
                     type="text"
                     value={this.state.inputVal}
                     onChange={this.change} 
                 />
                 <button
-                    className="Item-btn-save"
+                    className="ToDo-list__btn-save"
                     type="submit"
                     onClick={this.save}>
                     Save
                 </button>
                 <button
-                    className="Item-btn-delete"
+                    className="ToDo-list__btn-edit"
                     onClick={this.edit}>
                     Exit
                 </button>
@@ -64,17 +64,17 @@ class Item extends Component {
     renderTxt() {
         return (
             <span>
-                <span className="Item-txt">
+                <span className="ToDo-list__txt">
                     {this.props.item.txt}
                 </span>
                 <button
-                    className="Item-btn-edit"
+                    className="ToDo-list__btn-edit"
                     onClick={this.edit}
                 >
                     Edit
                 </button>
                 <button
-                    className="Item-btn-delete"
+                    className="ToDo-list__btn-delete"
                     onClick={this.delete}>
                     Delete
                 </button>
@@ -84,7 +84,7 @@ class Item extends Component {
 
     render() {
         return(
-            <li className="Item">
+            <li className="ToDo-list__item">
                 { this.state.isEditing ? this.renderForm() : this.renderTxt() }
             </li>
         )

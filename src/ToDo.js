@@ -30,7 +30,7 @@ class ToDo extends Component {
         this.setState({categories: newCategories});
     };
 
-    getCategoryList = () => {
+    getCategoryNames = () => {
         const { categories, currCategory } = this.state;
         const categoryNames = [currCategory];
         if(currCategory !== "All") categoryNames.push("All");
@@ -94,14 +94,14 @@ class ToDo extends Component {
         return (
             <div className="ToDo-options">
                 <button 
-                    className="btn btn--completed"
+                    className="ToDo-options__btn-completed"
                     onClick={this.hideCompleted}>
-                    {this.state.hideCompleted ? "Show Completed" : "Hide Completed"}
+                    { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
                 </button>
 
                 {this.state.currCategory !== "All" &&
                     <button
-                        className="Options-btn-delete"
+                        className="ToDo-options__btn-delete"
                         onClick={this.deleteCategory}>
                         Delete Category
                     </button>
@@ -125,7 +125,7 @@ class ToDo extends Component {
                 />
                 
                 <Select
-                    options={this.getCategoryList()} 
+                    options={this.getCategoryNames()} 
                     returnSelectData={this.returnSelectData}
                 />
                 

@@ -12,12 +12,12 @@ class Select extends Component {
         return(
             <select 
                 onChange={this.handleChange} 
-                className="Select"
+                className="ToDo-select"
                 value={this.props.options[0]}
             >
                 {this.props.options.map( option => (
                     <option
-                        className="Select-option"
+                        className="ToDo-select__option"
                         key={option}
                     >
                         {option}

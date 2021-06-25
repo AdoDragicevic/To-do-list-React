@@ -26,11 +26,11 @@ class Form extends Component {
     render() {
         return (
             <form 
-                className="Form"
+                className="ToDo-form"
                 onSubmit={this.handleSubmit}
             >
                 <input 
-                    className="Form-input"
+                    className="ToDo-form__input"
                     type="text"
                     name="txt"
                     id="txt"
@@ -38,9 +38,9 @@ class Form extends Component {
                     placeholder={`New ${this.state.target}`}
                     onChange={this.handleChange}
                 />
-                <div className="Form-btns">
+                <div className="ToDo-form__btns">
                     <input
-                        className="Form-btn-item" 
+                        className="ToDo-form__btn-item" 
                         type="button"
                         name="item"
                         value="Item"
@@ -48,14 +48,14 @@ class Form extends Component {
                         disabled={this.props.isNewItemDisabled}
                     />
                     <input
-                        className="Form-btn-category" 
+                        className="ToDo-form__btn-category" 
                         type="button"
                         name="category"
                         value="Category"
                         onClick={this.handleClick}
                     />
                     <input
-                        className="Form-btn-submit" 
+                        className="ToDo-form__btn-submit" 
                         type="button"
                         value="Add"
                         onClick={this.handleSubmit}
