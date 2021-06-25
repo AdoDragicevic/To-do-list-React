@@ -52,6 +52,14 @@ class ToDo extends Component {
         this.setState({categories: ctgs});
     };
 
+    changeItem = (id, category, newTxt) => {
+        const ctgs = {...this.state.categories};
+        for(let i = 0; i < ctgs[category].length; i++) {
+            if(ctgs[category][i].id === id) ctgs[category][i].txt = newTxt;
+        }
+        this.setState({categories: ctgs});
+    };
+
     listItems() {
         const { categories, currCategory } = this.state;
         let items = currCategory === "All" ? [] : categories[currCategory];
@@ -63,6 +71,7 @@ class ToDo extends Component {
                 item={item}
                 key={item.id}
                 delete={this.deleteItem}
+                change={this.changeItem}
             />
         ));
     };
@@ -107,7 +116,6 @@ class ToDo extends Component {
                 
                 {this.state.currCategory !== "All" &&  
                  <Options
-                    className="ToDo-options"
                     hideCompleted={this.hideCompleted}
                     deleteCategory={this.deleteCategory} 
                  /> 
