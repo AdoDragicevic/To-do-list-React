@@ -3,7 +3,6 @@ import "./ToDo.css";
 import Form from "./Form";
 import Select from "./Select";
 import Item from "./Item";
-import Options from "./Options";
 import { v4 as uuidv4 } from 'uuid';
 
 class ToDo extends Component {
@@ -60,7 +59,7 @@ class ToDo extends Component {
         this.setState({categories: ctgs});
     };
 
-    listItems() {
+    renderItems() {
         const { categories, currCategory } = this.state;
         let items = currCategory === "All" ? [] : categories[currCategory];
         if(currCategory === "All") {
@@ -91,6 +90,26 @@ class ToDo extends Component {
         this.setState({categories: newCategories, currCategory: "All"});
     };
 
+    renderOptions() {
+        return (
+            <div className="ToDo-options">
+                <button 
+                    className="btn btn--completed"
+                    onClick={this.hideCompleted}>
+                    {this.state.hideCompleted ? "Show Completed" : "Hide Completed"}
+                </button>
+
+                {this.state.currCategory !== "All" &&
+                    <button
+                        className="Options-btn-delete"
+                        onClick={this.deleteCategory}>
+                        Delete Category
+                    </button>
+                }
+            </div>
+        )
+    };
+
     render() {
         const noCategories = Object.keys(this.state.categories).length ? false : true;
         return (
@@ -111,15 +130,10 @@ class ToDo extends Component {
                 />
                 
                 <ul className="ToDo-list">
-                    { this.listItems() }
+                    { this.renderItems() }
                 </ul>
-                
-                {this.state.currCategory !== "All" &&  
-                 <Options
-                    hideCompleted={this.hideCompleted}
-                    deleteCategory={this.deleteCategory} 
-                 /> 
-                }
+
+                {!noCategories && this.renderOptions()} 
 
             </div>
         )

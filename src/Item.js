@@ -63,8 +63,8 @@ class Item extends Component {
 
     renderTxt() {
         return (
-            <span className="Item-txt">
-                <span>
+            <span>
+                <span className="Item-txt">
                     {this.props.item.txt}
                 </span>
                 <button
