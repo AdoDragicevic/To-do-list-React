@@ -13,8 +13,8 @@ class ToDo extends Component {
         hideCompleted: false
     };
 
-    returnInputData = data => {
-        data.target === "category" ? this.addCategory(data.txt) : this.addItem(data.txt);
+    returnInputData = (target, txt) => {
+        target === "category" ? this.addCategory(txt) : this.addItem(txt);
     };
 
     addCategory(name) {
@@ -23,6 +23,7 @@ class ToDo extends Component {
     };
 
     addItem(txt) {
+        if(this.state.currCategory === "All") return;
         const item = { txt, id: uuidv4(), category: this.state.currCategory, isCompleted: false};
         const newCategories = { ...this.state.categories };
         newCategories[this.state.currCategory].push(item);
