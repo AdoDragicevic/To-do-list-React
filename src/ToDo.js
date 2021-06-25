@@ -131,7 +131,7 @@ class ToDo extends Component {
                 
                 <Form
                     returnInputData={this.returnInputData}
-                    isNewItemDisabled={noCategories} 
+                    isNewItemDisabled={noCategories || this.state.currCategory === "All"} 
                 />
                 
                 <Select

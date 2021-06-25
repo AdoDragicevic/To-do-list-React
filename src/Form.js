@@ -3,16 +3,16 @@ import "./Form.css";
 
 class Form extends Component {
 
-    state = { 
-        txt: "", 
-        target: this.props.isNewItemDisabled ? "category" : "item" 
+    state = {
+        txt: "",
+        target: this.props.isNewItemDisabled ? "category" : "item"
     };
 
     handleSubmit = e => {
         e.preventDefault();
         if(!this.state.txt) return;
         this.props.returnInputData(this.state);
-        this.setState({ txt: "" });
+        this.setState({txt: "", target: "item"});
     };
 
     handleChange = e => {
@@ -35,7 +35,8 @@ class Form extends Component {
                     name="txt"
                     id="txt"
                     value={this.state.txt}
-                    placeholder={`New ${this.state.target}`}
+                    placeholder={
+                        `New ${this.props.isNewItemDisabled || this.state.target === "category" ? "category" : "item"}`}
                     onChange={this.handleChange}
                 />
                 <div className="ToDo-form__btns">
