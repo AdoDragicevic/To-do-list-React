@@ -1,7 +1,6 @@
 import { Component } from "react";
 import "./ToDo.css";
 import Form from "./Form";
-import Select from "./Select";
 import Item from "./Item";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -132,14 +131,11 @@ class ToDo extends Component {
                 
                 <Form
                     returnInputData={this.returnInputData}
-                    isNewItemDisabled={noCategories || this.state.currCategory === "All"} 
-                />
-                
-                <Select
-                    options={this.getCategoryNames()} 
                     returnSelectData={this.returnSelectData}
-                />
-                
+                    options={this.getCategoryNames()}
+                    isNewItemDisabled={noCategories || this.state.currCategory === "All"} 
+                />        
+
                 <ul className="ToDo-list">
                     { this.renderItems(this.getItems()) }
                 </ul>
