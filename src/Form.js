@@ -3,23 +3,17 @@ import "./Form.css";
 
 class Form extends Component {
 
-    state = { txt: "", target: "item" };
+    state = { txt: "" };
 
     handleSubmit = e => {
         e.preventDefault();
-        const { txt } = this.state;
-        if(!txt) return;
-        const target = this.props.isNewItemDisabled || this.state.target === "category" ? "category" : "item";
-        this.props.returnInputData(target, txt);
-        this.setState({txt: "", target: "item"});
+        if(!this.state.txt) return;
+        this.props.returnInputData(this.props.target, this.state.txt);
+        this.setState({txt: ""});
     };
 
     handleTxtChange = e => {
         this.setState( { [e.target.name]: e.target.value } );        
-    };
-
-    handleClick = e => {
-        this.setState({target: e.target.name});
     };
 
     handleSelect = e => {
@@ -27,22 +21,24 @@ class Form extends Component {
         this.props.returnSelectData(e.target.value);
     };
 
+    handleBtnClick = e => {
+        this.setState({target: e.target.name});
+    };
+
     render() {
         return (
-            <form 
+            <form
                 className="ToDo-form"
                 onSubmit={this.handleSubmit}
             >
                 <div>
-                    <input 
+                    <input
                         className="ToDo-form__input"
                         type="text"
                         name="txt"
                         id="txt"
                         value={this.state.txt}
-                        placeholder={
-                            `New ${this.props.isNewItemDisabled || this.state.target === "category" ? "category" : "item"}`
-                        }
+                        placeholder={`New ${this.props.target}`}
                         onChange={this.handleTxtChange}
                     />
                     <input
@@ -51,30 +47,28 @@ class Form extends Component {
                         value="Add"
                         onClick={this.handleSubmit}
                     />
-                    <select 
+                    <select
+                        className="ToDo-form__select"
                         onChange={this.handleSelect} 
-                        className="ToDo-select"
                         value={this.props.options[0]}
                     >
-                        {this.props.options.map( option => (
-                            <option
-                                className="ToDo-select__option"
-                                key={option}
-                            >
-                                {option}
-                            </option>
-                        ))}
+                    {this.props.options.map( option => (
+                        <option
+                            className="ToDo-form__option"
+                            key={option}
+                        >
+                            {option}
+                        </option>
+                    ))}
                     </select>
-
                 </div>
-                
                 <div className="ToDo-form__btns">
                     <input
                         className="ToDo-form__btn-item" 
                         type="button"
                         name="item"
                         value="Item"
-                        onClick={this.handleClick}
+                        onClick={this.handleBtnClick}
                         disabled={this.props.isNewItemDisabled}
                     />
                     <input
@@ -82,9 +76,8 @@ class Form extends Component {
                         type="button"
                         name="category"
                         value="Category"
-                        onClick={this.handleClick}
+                        onClick={this.handleBtnClick}
                     />
-                    
                 </div>
             </form>
         )

@@ -9,11 +9,13 @@ class ToDo extends Component {
     state = {
         categories: {},
         currCategory: "All",
+        adding: "item",
         hideCompleted: false
     };
 
     returnInputData = (target, txt) => {
         target === "category" ? this.addCategory(txt) : this.addItem(txt);
+        if(target === "category") this.setState({adding: "item"});
     };
 
     addCategory(name) {
@@ -133,6 +135,7 @@ class ToDo extends Component {
                     returnInputData={this.returnInputData}
                     returnSelectData={this.returnSelectData}
                     options={this.getCategoryNames()}
+                    target={(noCategories || this.state.currCategory === "All") ? "category" : "item"}
                     isNewItemDisabled={noCategories || this.state.currCategory === "All"} 
                 />        
 
