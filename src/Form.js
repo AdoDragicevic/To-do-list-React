@@ -22,7 +22,7 @@ class Form extends Component {
     };
 
     handleBtnClick = e => {
-        this.setState({target: e.target.name});
+        this.props.changeTarget(e.target.name);
     };
 
     render() {
@@ -31,54 +31,47 @@ class Form extends Component {
                 className="ToDo-form"
                 onSubmit={this.handleSubmit}
             >
-                <div>
+                <div className="ToDo-form__input-container">
                     <input
                         className="ToDo-form__input"
                         type="text"
                         name="txt"
-                        id="txt"
                         value={this.state.txt}
-                        placeholder={`New ${this.props.target}`}
+                        placeholder={`New ${this.props.target === "item" ? "item" : "category"}`}
                         onChange={this.handleTxtChange}
                     />
-                    <input
+                    <button
                         className="ToDo-form__btn-submit" 
-                        type="button"
-                        value="Add"
+                        type="submit"
                         onClick={this.handleSubmit}
-                    />
-                    <select
-                        className="ToDo-form__select"
-                        onChange={this.handleSelect} 
-                        value={this.props.options[0]}
                     >
-                    {this.props.options.map( option => (
-                        <option
-                            className="ToDo-form__option"
-                            key={option}
+                        <i className="fas fa-plus-square"></i>
+                    </button>         
+                </div>
+                <div className="ToDo-Form__buttons">
+                        <button
+                            className="ToDo-form__btn-item" 
+                            name="item"
+                            onClick={this.handleBtnClick}
+                            disabled={this.props.isNewItemDisabled}
                         >
-                            {option}
-                        </option>
-                    ))}
-                    </select>
-                </div>
-                <div className="ToDo-form__btns">
-                    <input
-                        className="ToDo-form__btn-item" 
-                        type="button"
-                        name="item"
-                        value="Item"
-                        onClick={this.handleBtnClick}
-                        disabled={this.props.isNewItemDisabled}
-                    />
-                    <input
-                        className="ToDo-form__btn-category" 
-                        type="button"
-                        name="category"
-                        value="Category"
-                        onClick={this.handleBtnClick}
-                    />
-                </div>
+                            Add Item
+                        </button>
+                        <button
+                            className="ToDo-form__btn-category"
+                            name="category"
+                            onClick={this.handleBtnClick}
+                        >
+                            Add Category
+                        </button>
+                        <button
+                            className="ToDo-form__btn-category"
+                            name="categories"
+                            onClick={this.handleBtnClick}
+                        >
+                            Show All Cateogries
+                        </button>  
+                    </div>   
             </form>
         )
     }

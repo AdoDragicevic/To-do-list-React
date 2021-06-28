@@ -9,7 +9,7 @@ class ToDo extends Component {
     state = {
         categories: {},
         currCategory: "All",
-        adding: "item",
+        target: "item",
         hideCompleted: false
     };
 
@@ -77,6 +77,10 @@ class ToDo extends Component {
         return hideCompleted ? items.filter( item => !item.isCompleted) : items; 
     };
 
+    getCategories() {
+        return Object.keys(this.state.categories);
+    };
+
     renderItems(items) {
         return items.map( item => (
             <Item 
@@ -85,6 +89,21 @@ class ToDo extends Component {
                 delete={this.deleteItem}
                 change={this.updateItem}
                 complete={this.completeItem}
+            />
+        ));
+    };
+
+    updateCategory() {
+
+    };
+
+    renderCategories(ctgs) {
+        return ctgs.map( ctg => (
+            <Item 
+                item={ctg}
+                key={ctg}
+                delete={this.deleteCategory}
+                change={this.updateCategory}
             />
         ));
     };
@@ -109,23 +128,30 @@ class ToDo extends Component {
             <div className="ToDo-options">
                 <button 
                     className="ToDo-options__btn-completed"
-                    onClick={this.hideCompleted}>
+                    onClick={this.hideCompleted}
+                >
                     { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
                 </button>
                 { this.state.currCategory !== "All" &&
                 <button
                     className="ToDo-options__btn-delete"
-                    onClick={this.deleteCategory}>
+                    onClick={this.deleteCategory}
+                >
                     Delete Category
                 </button> }
             </div>
         )
     };
 
+    changeTarget = newTarget => {
+        if(this.state.target === newTarget) return;
+        this.setState({target: newTarget});
+    }
+
     render() {
         const noCategories = Object.keys(this.state.categories).length ? false : true;
         return (
-            <div className="ToDo">
+            <div className="ToDo-container">
                 
                 <h1 className="ToDo-title">
                     { this.state.currCategory === "All" ? "To-Do List" : this.state.currCategory }
@@ -134,13 +160,16 @@ class ToDo extends Component {
                 <Form
                     returnInputData={this.returnInputData}
                     returnSelectData={this.returnSelectData}
+                    changeTarget={this.changeTarget}
                     options={this.getCategoryNames()}
-                    target={(noCategories || this.state.currCategory === "All") ? "category" : "item"}
-                    isNewItemDisabled={noCategories || this.state.currCategory === "All"} 
+                    target={this.state.target}
+                    isNewItemDisabled={noCategories || this.state.currCategory === "All"}
                 />        
 
                 <ul className="ToDo-list">
-                    { this.renderItems(this.getItems()) }
+                    {this.state.target === "categories" ? 
+                    this.renderCategories(this.getCategoryNames()) 
+                    : this.renderItems(this.getItems())}
                 </ul>
 
                 {!noCategories && this.renderOptions()} 

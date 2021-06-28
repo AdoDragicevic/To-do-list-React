@@ -1,0 +1,62 @@
+.ToDo-form__input {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: #efefef; 
+    width: 70%;
+}
+
+.ToDo-form__btn-submit {
+    padding: 0 2rem;
+    font-size: 2.5rem;
+    border: none;
+    outline: none;
+    background-color: #efefef;
+    color: #d88771;
+    cursor: pointer;
+}
+
+.ToDo-form__btn-item {
+    color: #d88771;
+    background-color: #efefef;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.ToDo-form__btn-item:hover {
+    background-color: #d88771;
+    color: #efefef;
+}
+
+.ToDo-form__input-container {
+    width: 80vw;
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row wrap;
+    align-items: stretch;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: none;
+    transition: none;
+}
+
+
+
+
+
+
+button {
+  border: 0;
+  color: white;
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  background: #00c7bd;
+}
+
+button:hover {
+  background: #00b8ae;
+}
