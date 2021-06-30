@@ -8,8 +8,7 @@ class ToDo extends Component {
     
     state = {
         categories: {},
-        currCategory: "All",
-        target: "item",
+        currCategory: null,
         hideCompleted: false
     };
 
@@ -39,11 +38,6 @@ class ToDo extends Component {
             if(key !== categoryNames[0]) categoryNames.push(key);
         }
         return categoryNames;
-    };
-
-    returnSelectData = selectedOption => {
-        this.setState({currCategory: selectedOption});
-        if(selectedOption === "All") this.setState({isNewItemDisabled: true});
     };
 
     deleteItem = (id, category) => {
@@ -132,24 +126,27 @@ class ToDo extends Component {
                 >
                     { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
                 </button>
-                { this.state.currCategory !== "All" &&
+                {
+                this.currCategory !== "All items" &&
+                    <button
+                        className="ToDo-options__btn-delete"
+                        onClick={this.deleteCategory}
+                    >
+                        Delete Category
+                    </button>
+                }
                 <button
-                    className="ToDo-options__btn-delete"
-                    onClick={this.deleteCategory}
-                >
-                    Delete Category
-                </button> }
+                        className="ToDo-form__btn-category"
+                        name="categories"
+                        onClick={this.handleBtnClick}
+                    >
+                        Show Cateogries
+                </button>
             </div>
         )
     };
 
-    changeTarget = newTarget => {
-        if(this.state.target === newTarget) return;
-        this.setState({target: newTarget});
-    }
-
     render() {
-        const noCategories = Object.keys(this.state.categories).length ? false : true;
         return (
             <div className="ToDo-container">
                 
@@ -159,20 +156,17 @@ class ToDo extends Component {
                 
                 <Form
                     returnInputData={this.returnInputData}
-                    returnSelectData={this.returnSelectData}
-                    changeTarget={this.changeTarget}
-                    options={this.getCategoryNames()}
                     target={this.state.target}
-                    isNewItemDisabled={noCategories || this.state.currCategory === "All"}
                 />        
 
+                {
                 <ul className="ToDo-list">
                     {this.state.target === "categories" ? 
                     this.renderCategories(this.getCategoryNames()) 
                     : this.renderItems(this.getItems())}
                 </ul>
-
-                {!noCategories && this.renderOptions()} 
+                }
+                {this.state.target === "item" && this.renderOptions()} 
 
             </div>
         )

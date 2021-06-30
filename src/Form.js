@@ -37,7 +37,7 @@ class Form extends Component {
                         type="text"
                         name="txt"
                         value={this.state.txt}
-                        placeholder={`New ${this.props.target === "item" ? "item" : "category"}`}
+                        placeholder={`New ${this.props.target}`}
                         onChange={this.handleTxtChange}
                     />
                     <button
@@ -47,31 +47,7 @@ class Form extends Component {
                     >
                         <i className="fas fa-plus-square"></i>
                     </button>         
-                </div>
-                <div className="ToDo-Form__buttons">
-                        <button
-                            className="ToDo-form__btn-item" 
-                            name="item"
-                            onClick={this.handleBtnClick}
-                            disabled={this.props.isNewItemDisabled}
-                        >
-                            Add Item
-                        </button>
-                        <button
-                            className="ToDo-form__btn-category"
-                            name="category"
-                            onClick={this.handleBtnClick}
-                        >
-                            Add Category
-                        </button>
-                        <button
-                            className="ToDo-form__btn-category"
-                            name="categories"
-                            onClick={this.handleBtnClick}
-                        >
-                            Show All Cateogries
-                        </button>  
-                    </div>   
+                </div>  
             </form>
         )
     }
