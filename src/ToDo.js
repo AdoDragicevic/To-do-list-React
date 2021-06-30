@@ -14,7 +14,6 @@ class ToDo extends Component {
 
 
     returnInputVal = txt => {
-        if(this.state.currCategory === "All items") return;
         this.state.currCategory ? this.addItem(txt) : this.addCategory(txt);
     };
 
@@ -29,9 +28,9 @@ class ToDo extends Component {
     };
 
 
-    addCategory(name) {
+    addCategory(txt) {
         const id = uuidv4();
-        const ctgs = {...this.state.categories, [id]: { name, id, items: [] } };
+        const ctgs = {...this.state.categories, [id]: { txt, id, items: [] } };
         this.setState( {categories: ctgs, currCategory: ctgs[id]} );
     };
 
@@ -56,13 +55,13 @@ class ToDo extends Component {
         this.setState({categories: ctgs});
     };
 
-    editCategory = (id, newName) => {
+    editCategory = (newTxt, id) => {
         const ctgs = {...this.state.categories};
-        ctgs[id].name = newName;
+        ctgs[id].txt = newTxt;
         this.setState({categories: ctgs});
     };
 
-    editItem = (id, category, newTxt) => {
+    editItem = (newTxt, id, category) => {
         const ctgs = {...this.state.categories};
         const items = ctgs[category].items;
         for(let item of items) {
@@ -91,8 +90,9 @@ class ToDo extends Component {
         this.setState({currCategory: ctg});
     };
 
+
     renderItems() {
-        return this.state.currCategory.items.map( item => {
+        return this.state.currCategory.items.map( item => (
             <Item 
                 item={item}
                 key={item.id}
@@ -100,35 +100,21 @@ class ToDo extends Component {
                 change={this.editItem}
                 onClick={this.completeItem}
             />
-        });
+        ));
     };
 
     renderCategories() {
-        const ctgs = [];
         const { categories } = this.state;
-        for(let key in categories) {
-            ctgs.push(
-                <Item 
-                    item={categories[key]}
-                    key={key}
-                    delete={this.deleteCategory}
-                    change={this.editCategory}
-                    onClick={this.openCategory}
-                />
-            )
-        }
-        return ctgs;
+        return Object.keys(categories).map( key => (
+            <Item 
+                item={categories[key]}
+                key={key}
+                delete={this.deleteCategory}
+                change={this.editCategory}
+                onClick={this.openCategory}
+            />
+        ));
     };
-
-
-
-
-
-
-
-
-
-
 
     renderOptions() {
         return (
@@ -139,40 +125,36 @@ class ToDo extends Component {
                 >
                     { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
                 </button>
-                {
-                this.currCategory !== "All items" &&
-                    <button
-                        className="ToDo-options__btn-delete"
-                        onClick={this.deleteCategory}
-                    >
-                        Delete Category
-                    </button>
-                }
+                <button
+                    className="ToDo-options__btn-delete"
+                    onClick={this.deleteCategory}
+                >
+                    Delete Category
+                </button>
                 <button
                         className="ToDo-form__btn-category"
                         onClick={this.showCategories}
                     >
-                        Open Cateogries
+                        Show Cateogries
                 </button>
             </div>
         )
     };
+
 
     render() {
         return (
             <div className="ToDo-container">
                 
                 <h1 className="ToDo-title">
-                    { this.state.currCategory ? this.state.currCategory.name : "To-Do List" }
-                    { 
-                        //this.state.currCategory ||  "To-Do List" 
-                    }
+                    { this.state.currCategory ? this.state.currCategory.txt : "Categories" }
+                    {this.state.currCategory === "All" && "All items"}
                 </h1>
                 
                 <Form
                     placeholder={this.state.currCategory ? "item" : "category"} 
                     returnInputVal={this.returnInputVal} 
-                />        
+                />    
 
                 <ul className="ToDo-list">
                     {this.state.currCategory ? this.renderItems() : this.renderCategories()}
@@ -185,5 +167,6 @@ class ToDo extends Component {
     };
 
 };
+
 
 export default ToDo;

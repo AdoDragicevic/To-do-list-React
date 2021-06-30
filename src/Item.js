@@ -71,7 +71,7 @@ class Item extends Component {
             <span>
                 <span 
                     className={ this.props.item.isCompleted ? "ToDo-list__txt--completed" : "ToDo-list__txt" }
-                    onClick={this.complete}>
+                    onClick={this.props.onClick}>
                     {this.props.item.txt}
                 </span>
                 <button
@@ -92,7 +92,9 @@ class Item extends Component {
     render() {
         return(
             <li className="ToDo-list__item">
-                { this.state.isEditing ? this.renderForm() : this.renderTxt() }
+                { 
+                this.state.isEditing ? this.renderForm() : this.renderTxt() 
+            }
             </li>
         )
     }
