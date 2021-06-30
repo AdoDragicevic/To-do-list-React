@@ -38,7 +38,7 @@ class Form extends Component {
                         type="submit"
                         onClick={this.handleSubmit}
                     >
-                        <i className="fas fa-plus-square"></i>
+                        <i class="fas fa-plus"></i>
                     </button>         
                 </div> 
             </form>

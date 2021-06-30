@@ -51,8 +51,8 @@ class Item extends Component {
 
     renderForm() {
         return (
-            <li className="ToDo-list__item">
-                <form className="ToDo-list__form">
+            
+                <form className="ToDo-list__item">
                     <input
                         className="ToDo-list__input"
                         type="text"
@@ -71,7 +71,7 @@ class Item extends Component {
                         Exit
                     </button>
                 </form>
-            </li>
+            
         )
     };
 
@@ -100,9 +100,7 @@ class Item extends Component {
 
 
     render() {
-        return(
-            this.state.isEditing ? this.renderForm() : this.renderTxt()
-        )
+        return this.state.isEditing ? this.renderForm() : this.renderTxt()
     };
 
 };

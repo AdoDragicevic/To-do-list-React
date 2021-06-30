@@ -131,19 +131,22 @@ class ToDo extends Component {
                 <button 
                     className="ToDo-options__btn-completed"
                     onClick={this.hideCompleted}
-                >
-                    { this.state.hideCompleted ? "Show Completed" : "Hide Completed" }
+                > 
+                    <i class="fas fa-tasks"></i>
+                    { this.state.hideCompleted ? " Show Completed" : " Hide Completed" }
                 </button>
                 <button
                     className="ToDo-options__btn-delete"
                     onClick={this.handleDelete}
                 >
+                    <i class="fas fa-trash"> </i>
                     Delete Category
                 </button>
                 <button
                         className="ToDo-form__btn-category"
                         onClick={this.showCategories}
                     >
+                        <i class="fas fa-stream"></i>
                         Show Cateogries
                 </button>
             </div>

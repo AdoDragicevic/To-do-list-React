@@ -12,6 +12,10 @@
     align-items: stretch;
 }
 
+.ToDo-list__item:hover {
+    cursor: pointer;
+}
+
 .ToDo-list__txt {
     width: 80%;
     font-size: 2rem;
@@ -53,4 +57,12 @@
 .ToDo-list__btn-update {
     font-size: 1.8rem;
     font-weight: 100;
+}
+
+.ToDo-list__input {
+    width: 100%;
+    font-size: 2rem;
+    text-align: start;
+    margin: 0 2rem;
+    line-height: 4rem;
 }

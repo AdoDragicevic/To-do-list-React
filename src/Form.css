@@ -18,10 +18,14 @@
     font-size: 2.7rem;
     border: none;
     outline: none;
-    background-color: #efefef;
+    color: #FFDDAD;
     font-weight: 100;
-    color: #7067CF;
     cursor: pointer;
+}
+
+.ToDo-form__btn-submit i {
+    font-size: 2.5rem;
+    font-weight: 100;
 }
 
 .ToDo-form__btn-item {
