@@ -12,94 +12,10 @@ class ToDo extends Component {
         hideCompleted: false
     };
 
-    returnInputData = (target, txt) => {
-        target === "category" ? this.addCategory(txt) : this.addItem(txt);
-        if(target === "category") this.setState({adding: "item"});
-    };
 
-    addCategory(name) {
-        const newCategories = { ...this.state.categories, [name]: [] };
-        this.setState( {categories: newCategories, currCategory: name} );
-    };
-
-    addItem(txt) {
-        if(this.state.currCategory === "All") return;
-        const item = { txt, id: uuidv4(), category: this.state.currCategory, isCompleted: false};
-        const newCategories = { ...this.state.categories };
-        newCategories[this.state.currCategory].push(item);
-        this.setState( {categories: newCategories} );
-    };
-
-    getCategoryNames = () => {
-        const { categories, currCategory } = this.state;
-        const categoryNames = [currCategory];
-        if(currCategory !== "All") categoryNames.push("All");
-        for(let key in categories) {
-            if(key !== categoryNames[0]) categoryNames.push(key);
-        }
-        return categoryNames;
-    };
-
-    deleteItem = (id, category) => {
-        const ctgs = {...this.state.categories};
-        ctgs[category] = ctgs[category].filter( item => item.id !== id);
-        this.setState({categories: ctgs});
-    };
-
-    updateItem = (id, category, newTxt) => {
-        const ctgs = {...this.state.categories};
-        for(let i = 0; i < ctgs[category].length; i++) {
-            if(ctgs[category][i].id === id) ctgs[category][i].txt = newTxt;
-        }
-        this.setState({categories: ctgs});
-    };
-
-    completeItem = (id, category) => {
-        const ctgs = { ...this.state.categories };
-        ctgs[category].forEach( item => {
-            if(item.id === id) item.isCompleted = !item.isCompleted;
-        });
-        this.setState({categories: ctgs});
-    };
-
-    getItems() {
-        const { categories, currCategory, hideCompleted } = this.state;
-        const items = currCategory === "All" ? [] : categories[currCategory];
-        if(currCategory === "All") {
-            for(let key in categories) categories[key].forEach( item => items.push(item) );
-        }
-        return hideCompleted ? items.filter( item => !item.isCompleted) : items; 
-    };
-
-    getCategories() {
-        return Object.keys(this.state.categories);
-    };
-
-    renderItems(items) {
-        return items.map( item => (
-            <Item 
-                item={item}
-                key={item.id}
-                delete={this.deleteItem}
-                change={this.updateItem}
-                complete={this.completeItem}
-            />
-        ));
-    };
-
-    updateCategory() {
-
-    };
-
-    renderCategories(ctgs) {
-        return ctgs.map( ctg => (
-            <Item 
-                item={ctg}
-                key={ctg}
-                delete={this.deleteCategory}
-                change={this.updateCategory}
-            />
-        ));
+    returnInputVal = txt => {
+        if(this.state.currCategory === "All items") return;
+        this.state.currCategory ? this.addItem(txt) : this.addCategory(txt);
     };
 
     hideCompleted = () => {
@@ -108,14 +24,111 @@ class ToDo extends Component {
         ));
     };
 
-    deleteCategory = () => {
-        const { categories, currCategory } = this.state;
-        const newCategories = {};
-        for(let key in categories) {
-            if(key !== currCategory) newCategories[key] = categories[key];
-        }
-        this.setState({categories: newCategories, currCategory: "All"});
+    showCategories = () => {
+        this.setState({currCategory: null});
     };
+
+
+    addCategory(name) {
+        const id = uuidv4();
+        const ctgs = {...this.state.categories, [id]: { name, id, items: [] } };
+        this.setState( {categories: ctgs, currCategory: ctgs[id]} );
+    };
+
+    addItem(txt) {
+        const item = { txt, id: uuidv4(), category: this.state.currCategory.id, isCompleted: false};
+        const ctgs = { ...this.state.categories };
+        ctgs[this.state.currCategory.id].items.push(item);
+        this.setState({categories: ctgs});
+    };
+
+    deleteCategory = id => {
+        const ctgs = {};
+        for(let key in this.state.categories) {
+            if(key !== id) ctgs[key] = this.state.categories[key];
+        }
+        this.setState({categories: ctgs, currCategory: null});
+    };
+
+    deleteItem = (id, category) => {
+        const ctgs = {...this.state.categories};
+        ctgs[category].items = ctgs[category].items.filter( item => item.id !== id);
+        this.setState({categories: ctgs});
+    };
+
+    editCategory = (id, newName) => {
+        const ctgs = {...this.state.categories};
+        ctgs[id].name = newName;
+        this.setState({categories: ctgs});
+    };
+
+    editItem = (id, category, newTxt) => {
+        const ctgs = {...this.state.categories};
+        const items = ctgs[category].items;
+        for(let item of items) {
+            if(item.id === id) {
+                item.txt = newTxt;
+                break;
+            }
+        }
+        this.setState({categories: ctgs});
+    };
+
+    completeItem = (id, category) => {
+        const ctgs = { ...this.state.categories };
+        const items = ctgs[category].items;
+        for(let item of items) {
+            if(item.id === id) {
+                item.isCompleted = !item.isCompleted;
+                break;
+            }
+        }
+        this.setState({categories: ctgs});
+    };
+
+    openCategory = id => {
+        const ctg = this.state.categories[id];
+        this.setState({currCategory: ctg});
+    };
+
+    renderItems() {
+        return this.state.currCategory.items.map( item => {
+            <Item 
+                item={item}
+                key={item.id}
+                delete={this.deleteItem}
+                change={this.editItem}
+                onClick={this.completeItem}
+            />
+        });
+    };
+
+    renderCategories() {
+        const ctgs = [];
+        const { categories } = this.state;
+        for(let key in categories) {
+            ctgs.push(
+                <Item 
+                    item={categories[key]}
+                    key={key}
+                    delete={this.deleteCategory}
+                    change={this.editCategory}
+                    onClick={this.openCategory}
+                />
+            )
+        }
+        return ctgs;
+    };
+
+
+
+
+
+
+
+
+
+
 
     renderOptions() {
         return (
@@ -137,10 +150,9 @@ class ToDo extends Component {
                 }
                 <button
                         className="ToDo-form__btn-category"
-                        name="categories"
-                        onClick={this.handleBtnClick}
+                        onClick={this.showCategories}
                     >
-                        Show Cateogries
+                        Open Cateogries
                 </button>
             </div>
         )
@@ -151,22 +163,22 @@ class ToDo extends Component {
             <div className="ToDo-container">
                 
                 <h1 className="ToDo-title">
-                    { this.state.currCategory === "All" ? "To-Do List" : this.state.currCategory }
+                    { this.state.currCategory ? this.state.currCategory.name : "To-Do List" }
+                    { 
+                        //this.state.currCategory ||  "To-Do List" 
+                    }
                 </h1>
                 
                 <Form
-                    returnInputData={this.returnInputData}
-                    target={this.state.target}
+                    placeholder={this.state.currCategory ? "item" : "category"} 
+                    returnInputVal={this.returnInputVal} 
                 />        
 
-                {
                 <ul className="ToDo-list">
-                    {this.state.target === "categories" ? 
-                    this.renderCategories(this.getCategoryNames()) 
-                    : this.renderItems(this.getItems())}
+                    {this.state.currCategory ? this.renderItems() : this.renderCategories()}
                 </ul>
-                }
-                {this.state.target === "item" && this.renderOptions()} 
+
+                {this.state.currCategory && this.renderOptions()} 
 
             </div>
         )

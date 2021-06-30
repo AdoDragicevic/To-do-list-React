@@ -8,21 +8,12 @@ class Form extends Component {
     handleSubmit = e => {
         e.preventDefault();
         if(!this.state.txt) return;
-        this.props.returnInputData(this.props.target, this.state.txt);
+        this.props.returnInputVal(this.state.txt);
         this.setState({txt: ""});
     };
 
     handleTxtChange = e => {
         this.setState( { [e.target.name]: e.target.value } );        
-    };
-
-    handleSelect = e => {
-        e.preventDefault();
-        this.props.returnSelectData(e.target.value);
-    };
-
-    handleBtnClick = e => {
-        this.props.changeTarget(e.target.name);
     };
 
     render() {
@@ -37,7 +28,7 @@ class Form extends Component {
                         type="text"
                         name="txt"
                         value={this.state.txt}
-                        placeholder={`New ${this.props.target}`}
+                        placeholder={`New ${this.props.placeholder}`}
                         onChange={this.handleTxtChange}
                     />
                     <button
