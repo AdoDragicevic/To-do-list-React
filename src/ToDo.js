@@ -23,46 +23,51 @@ class ToDo extends Component {
         ));
     };
 
+    handleDelete = () => {
+        this.deleteCategory();
+    }
+
     showCategories = () => {
-        this.setState({currCategory: null});
+        this.setState( { currCategory: null } );
     };
 
 
     addCategory(txt) {
         const id = uuidv4();
-        const ctgs = {...this.state.categories, [id]: { txt, id, items: [] } };
-        this.setState( {categories: ctgs, currCategory: ctgs[id]} );
+        const ctgs = { ...this.state.categories, [id]: { txt, id, items: [] } };
+        this.setState( { categories: ctgs, currCategory: ctgs[id] } );
     };
 
     addItem(txt) {
         const item = { txt, id: uuidv4(), category: this.state.currCategory.id, isCompleted: false};
         const ctgs = { ...this.state.categories };
         ctgs[this.state.currCategory.id].items.push(item);
-        this.setState({categories: ctgs});
+        this.setState( { categories: ctgs } );
     };
 
     deleteCategory = id => {
         const ctgs = {};
+        const ctgId = id || this.state.currCategory.id;
         for(let key in this.state.categories) {
-            if(key !== id) ctgs[key] = this.state.categories[key];
+            if(key !== ctgId) ctgs[key] = this.state.categories[key];
         }
-        this.setState({categories: ctgs, currCategory: null});
+        this.setState( { categories: ctgs, currCategory: null } );
     };
 
     deleteItem = (id, category) => {
-        const ctgs = {...this.state.categories};
-        ctgs[category].items = ctgs[category].items.filter( item => item.id !== id);
-        this.setState({categories: ctgs});
+        const ctgs = {...this.state.categories };
+        ctgs[category].items = ctgs[category].items.filter( item => item.id !== id );
+        this.setState( { categories: ctgs } );
     };
 
     editCategory = (newTxt, id) => {
-        const ctgs = {...this.state.categories};
+        const ctgs = { ...this.state.categories };
         ctgs[id].txt = newTxt;
-        this.setState({categories: ctgs});
+        this.setState( { categories: ctgs } );
     };
 
     editItem = (newTxt, id, category) => {
-        const ctgs = {...this.state.categories};
+        const ctgs = { ...this.state.categories };
         const items = ctgs[category].items;
         for(let item of items) {
             if(item.id === id) {
@@ -70,7 +75,7 @@ class ToDo extends Component {
                 break;
             }
         }
-        this.setState({categories: ctgs});
+        this.setState( { categories: ctgs } );
     };
 
     completeItem = (id, category) => {
@@ -82,25 +87,29 @@ class ToDo extends Component {
                 break;
             }
         }
-        this.setState({categories: ctgs});
+        this.setState( { categories: ctgs } );
     };
 
     openCategory = id => {
-        const ctg = this.state.categories[id];
-        this.setState({currCategory: ctg});
+        this.setState(state => (
+            { currCategory: state.categories[id] }
+        ));
     };
 
 
     renderItems() {
-        return this.state.currCategory.items.map( item => (
-            <Item 
-                item={item}
-                key={item.id}
-                delete={this.deleteItem}
-                change={this.editItem}
-                onClick={this.completeItem}
-            />
-        ));
+        return this.state.currCategory.items.map( item => {
+            if(this.state.hideCompleted && item.isCompleted) return;
+            return (
+                <Item
+                    item={item}
+                    key={item.id}
+                    delete={this.deleteItem}
+                    change={this.editItem}
+                    onClick={this.completeItem}
+                />
+            );
+        });
     };
 
     renderCategories() {
@@ -127,7 +136,7 @@ class ToDo extends Component {
                 </button>
                 <button
                     className="ToDo-options__btn-delete"
-                    onClick={this.deleteCategory}
+                    onClick={this.handleDelete}
                 >
                     Delete Category
                 </button>
@@ -148,7 +157,6 @@ class ToDo extends Component {
                 
                 <h1 className="ToDo-title">
                     { this.state.currCategory ? this.state.currCategory.txt : "Categories" }
-                    {this.state.currCategory === "All" && "All items"}
                 </h1>
                 
                 <Form

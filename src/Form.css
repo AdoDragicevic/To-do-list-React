@@ -1,19 +1,26 @@
+.ToDo-form__input-container {    
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
 .ToDo-form__input {
     padding: 1rem 2rem;
     font-size: 2rem;
     border: none;
     outline: none;
-    background-color: #efefef; 
-    width: 70%;
+    flex-grow: 1;
+    background-color: #efefef;     
 }
 
 .ToDo-form__btn-submit {
     padding: 0 2rem;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     border: none;
     outline: none;
     background-color: #efefef;
-    color: #d88771;
+    font-weight: 100;
+    color: #7067CF;
     cursor: pointer;
 }
 
@@ -28,25 +35,6 @@
     background-color: #d88771;
     color: #efefef;
 }
-
-.ToDo-form__input-container {
-    width: 80vw;
-    max-width: 80rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row wrap;
-    align-items: stretch;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    -webkit-transition: none;
-    transition: none;
-}
-
-
-
-
-
 
 button {
   border: 0;

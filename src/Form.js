@@ -5,16 +5,18 @@ class Form extends Component {
 
     state = { txt: "" };
 
+    
     handleSubmit = e => {
         e.preventDefault();
         if(!this.state.txt) return;
         this.props.returnInputVal(this.state.txt);
-        this.setState({txt: ""});
+        this.setState( { txt: "" } );
     };
 
     handleTxtChange = e => {
         this.setState( { [e.target.name]: e.target.value } );        
     };
+
 
     render() {
         return (
@@ -38,10 +40,12 @@ class Form extends Component {
                     >
                         <i className="fas fa-plus-square"></i>
                     </button>         
-                </div>  
+                </div> 
             </form>
         )
-    }
-}
+    };
+
+};
+
 
 export default Form;

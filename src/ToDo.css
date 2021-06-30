@@ -1,5 +1,19 @@
+.ToDo-container {
+    width: 90vw;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 .ToDo-title {
-    font-size: 4rem;
-    margin: 5rem;
-    font-weight: 400;
+    font-size: 3.5rem;
+    margin: 5rem 0 2rem 0;
+}
+
+.ToDo-Form {
+    margin: 0 auto;
+}
+
+.ToDo-list__txt {
+    flex-grow: 1;
+    font-size: 2.7rem;
 }
