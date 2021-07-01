@@ -25,7 +25,6 @@
 
 .ToDo-list::-webkit-scrollbar {
     width: 1.5em;
-    cursor: pointer;
 }
    
 .ToDo-list::-webkit-scrollbar-track {

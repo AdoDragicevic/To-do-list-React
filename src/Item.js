@@ -64,12 +64,12 @@ class Item extends Component {
                         className="ToDo-list__btn ToDo-list__btn--update"
                         type="submit"
                         onClick={this.update}>
-                        <i class="fas fa-check ToDo-list__icon"></i>
+                        <i className="fas fa-check ToDo-list__icon"></i>
                     </button>
                     <button
                         className="ToDo-list__btn ToDo-list__btn--back"
                         onClick={this.edit}>
-                        <i class="fas fa-chevron-right ToDo-list__icon"></i>
+                        <i className="fas fa-chevron-right ToDo-list__icon"></i>
                     </button>
                 </form>
         )
@@ -95,13 +95,13 @@ class Item extends Component {
                     className="ToDo-list__btn ToDo-list__btn--edit"
                     onClick={this.edit}
                 >
-                    <i class="fas fa-pen ToDo-list__icon"></i>
+                    <i className="fas fa-pen ToDo-list__icon"></i>
                 </button>
                 <button
                     className="ToDo-list__btn ToDo-list__btn--delete"
                     onClick={this.delete}
                 >
-                    <i class="fas fa-times ToDo-list__icon"></i>
+                    <i className="fas fa-times ToDo-list__icon"></i>
                 </button>
             </li>
         )

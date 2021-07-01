@@ -23,7 +23,7 @@ class Form extends Component {
             <form
                 className="ToDo-form"
                 onSubmit={this.handleSubmit}
-                autocomplete="off"
+                autoComplete="off"
             >
                 <div className="ToDo-form__input-container">
                     <input
@@ -39,7 +39,7 @@ class Form extends Component {
                         type="submit"
                         onClick={this.handleSubmit}
                     >
-                        <i class="fas fa-plus"></i>
+                        <i className="fas fa-plus"></i>
                     </button>         
                 </div> 
             </form>
