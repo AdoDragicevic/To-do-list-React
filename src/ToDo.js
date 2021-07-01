@@ -55,7 +55,7 @@ class ToDo extends Component {
     };
 
     deleteItem = (id, category) => {
-        const ctgs = {...this.state.categories };
+        const ctgs = { ...this.state.categories };
         ctgs[category].items = ctgs[category].items.filter( item => item.id !== id );
         this.setState( { categories: ctgs } );
     };
@@ -99,7 +99,7 @@ class ToDo extends Component {
 
     renderItems() {
         const { hideCompleted, currCategory } = this.state;
-        const items = hideCompleted ? currCategory.items.filter( item => !item.isCompleted ) : currCategory.items;
+        const items = hideCompleted ? currCategory.items.filter(item => !item.isCompleted) : currCategory.items;
         return items.map( item => (
             <Item
                 item={item}
@@ -113,8 +113,7 @@ class ToDo extends Component {
 
     renderCategories() {
         const { categories } = this.state;
-        const categoryList = Object.keys(categories);
-        return categoryList.map( name => (
+        return Object.keys(categories).map( name => (
             <Item 
                 item={categories[name]}
                 key={name}
@@ -147,7 +146,8 @@ class ToDo extends Component {
                     className="ToDo-form__btn-category"
                     onClick={this.showCategories}
                 >
-                    <i className="fas fa-stream"></i>
+                    
+                    <i className="far fa-folder-open"></i>
                     Show Cateogries
                 </button>
             </div>

@@ -80,7 +80,7 @@ class Item extends Component {
             <li className={
                 "ToDo-list__item" + 
                 (this.props.item.isCompleted ? " u-completed" : "") +
-                (this.state.collapseAnimation ? " a-collapse-left" : "") 
+                (this.state.collapseAnimation ? " a-collapse-left" : "")
                 }
             >
                 <span

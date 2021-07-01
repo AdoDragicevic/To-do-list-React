@@ -4,6 +4,10 @@
     opacity: .3;
 }
 
+.u-width-99 {
+    width: 99%;
+}
+
 .a-collapse-left {
     animation: colapseLeft .3s ease-in;
 }
@@ -20,7 +24,6 @@
         width: 50%;
         opacity: .5;
     }
-
     75% {
         width: 25%;
     }
@@ -110,7 +113,6 @@
 
 .ToDo-list__btn--back {
     background-color: #790363;
-    /* background-color: #c22d2a; */
 }
 
 .ToDo-list__btn--back:hover {
