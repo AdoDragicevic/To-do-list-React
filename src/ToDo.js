@@ -99,7 +99,7 @@ class ToDo extends Component {
 
     renderItems() {
         const { hideCompleted, currCategory } = this.state;
-        const items = hideCompleted ? currCategory.items.map( item => !item.isCompleted ) : currCategory.items;
+        const items = hideCompleted ? currCategory.items.filter( item => !item.isCompleted ) : currCategory.items;
         return items.map( item => (
             <Item
                 item={item}
@@ -133,22 +133,22 @@ class ToDo extends Component {
                     className="ToDo-options__btn-completed"
                     onClick={this.hideCompleted}
                 > 
-                    <i class="fas fa-tasks"></i>
+                    <i className="fas fa-tasks"></i>
                     { this.state.hideCompleted ? " Show Completed" : " Hide Completed" }
                 </button>
                 <button
                     className="ToDo-options__btn-delete"
                     onClick={this.handleDelete}
                 >
-                    <i class="fas fa-trash"> </i>
+                    <i className="fas fa-trash"></i>
                     Delete Category
                 </button>
                 <button
-                        className="ToDo-form__btn-category"
-                        onClick={this.showCategories}
-                    >
-                        <i class="fas fa-stream"></i>
-                        Show Cateogries
+                    className="ToDo-form__btn-category"
+                    onClick={this.showCategories}
+                >
+                    <i className="fas fa-stream"></i>
+                    Show Cateogries
                 </button>
             </div>
         )
