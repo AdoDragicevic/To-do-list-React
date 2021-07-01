@@ -19,8 +19,30 @@
 
 .ToDo-list {
     height: 60vh;
-    overflow: hidden;
+    overflow-y: auto;
+    transition: all 4s ease-in;
 }
+
+.ToDo-list::-webkit-scrollbar {
+    width: 1.5em;
+    cursor: pointer;
+}
+   
+.ToDo-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #4b4688;
+    border-radius: 3px;
+}
+   
+.ToDo-list::-webkit-scrollbar-thumb {
+    background-color: #464085;
+    outline: 1px solud black;
+    border-radius: 3px;
+}
+
+.ToDo-list::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px #554f8d;
+}
+  
 
 .ToDo-list__txt {
     flex-grow: 1;
@@ -29,7 +51,7 @@
 
 .ToDo-options {
     display: flex;
-    margin-top: .5rem;
+    margin-top: 1rem;
 }
 
 .ToDo-options button {
@@ -47,7 +69,8 @@
     color: white;
 }
 
-
 .ToDo-options button i {
-    margin-right: 5px;
+    margin-right: .7rem;
+    font-weight: 100;
+    font-size: 1.3rem;
 }

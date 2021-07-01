@@ -5,7 +5,8 @@ class Item extends Component {
 
     state = {
         isEditing: false,
-        inputVal: this.props.item.txt
+        inputVal: this.props.item.txt,
+        collapseAnimation: false
     };
 
 
@@ -15,8 +16,9 @@ class Item extends Component {
     };
 
     delete = () => {
+        this.setState( { collapseAnimation: true } );
         const { id, category } = this.props.item;
-        this.props.delete(id, category);
+        setTimeout( () => this.props.delete(id, category), 200);
     };
 
     edit = e => {
@@ -75,7 +77,12 @@ class Item extends Component {
 
     renderTxt() {
         return (
-            <li className={"ToDo-list__item" + (this.props.item.isCompleted ? " u-completed" : "")}>
+            <li className={
+                "ToDo-list__item" + 
+                (this.props.item.isCompleted ? " u-completed" : "") +
+                (this.state.collapseAnimation ? " a-collapse-left" : "") 
+                }
+            >
                 <span
                     className="ToDo-list__txt"
                     onClick={this.handleClick}>
@@ -92,7 +99,8 @@ class Item extends Component {
                 </button>
                 <button
                     className="ToDo-list__btn ToDo-list__btn--delete"
-                    onClick={this.delete}>
+                    onClick={this.delete}
+                >
                     <i class="fas fa-times ToDo-list__icon"></i>
                 </button>
             </li>

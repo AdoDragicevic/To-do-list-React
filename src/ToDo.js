@@ -98,18 +98,17 @@ class ToDo extends Component {
 
 
     renderItems() {
-        return this.state.currCategory.items.map( item => {
-            if(this.state.hideCompleted && item.isCompleted) return;
-            return (
-                <Item
-                    item={item}
-                    key={item.id}
-                    delete={this.deleteItem}
-                    change={this.editItem}
-                    onClick={this.completeItem}
-                />
-            );
-        });
+        const { hideCompleted, currCategory } = this.state;
+        const items = hideCompleted ? currCategory.items.map( item => !item.isCompleted ) : currCategory.items;
+        return items.map( item => (
+            <Item
+                item={item}
+                key={item.id}
+                delete={this.deleteItem}
+                change={this.editItem}
+                onClick={this.completeItem}
+            />
+        ));
     };
 
     renderCategories() {
