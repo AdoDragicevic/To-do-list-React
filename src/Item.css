@@ -1,19 +1,16 @@
 .u-completed {
     text-decoration: line-through;
     color: #636B61;
+    opacity: .4;
 }
 
 .ToDo-list__item {
-    background-color: #F7F0F5;
+    background-color: #efefef;
     margin: 1.4rem 0;
-    height: 3.2rem;
     display: flex;
-    height: 4rem;
-    align-items: stretch;
-}
-
-.ToDo-list__item:hover {
+    height: 4.2rem;
     cursor: pointer;
+    border-radius: 3px;
 }
 
 .ToDo-list__txt {
@@ -21,48 +18,64 @@
     font-size: 2rem;
     text-align: start;
     margin: 0 2rem;
-    line-height: 4rem;
-}
-
-.ToDo-list__btn-edit {
-    flex-grow: 1;
-    background-color: #7067CF;
-    padding: 0 2rem;
-}
-
-.ToDo-list__btn-edit:hover {
-    background-color: #5e57ac;
-}
-
-.ToDo-list__btn-edit i {
-    font-size: 1.8rem;
-    font-weight: 100;
-}
-
-.ToDo-list__btn-delete {
-    flex-grow: 1;
-    padding: 0 2rem;
-    background-color: #FF3C38;
-}
-
-.ToDo-list__btn-delete:hover {
-    background-color: #da2b28;
-}
-
-.ToDo-list__btn-delete i {
-    font-size: 1.8rem;
-    font-weight: 100;
-}
-
-.ToDo-list__btn-update {
-    font-size: 1.8rem;
-    font-weight: 100;
+    line-height: 4.2rem;
 }
 
 .ToDo-list__input {
-    width: 100%;
+    width: 80%;
     font-size: 2rem;
     text-align: start;
     margin: 0 2rem;
     line-height: 4rem;
+    outline: none;
+    border: none;
+    background-color: #efefef;
+}
+
+.ToDo-list__btn {
+    flex-grow: 1;
+    padding: 0 2rem;
+}
+
+.ToDo-list__icon {
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+
+.ToDo-list__btn--edit {
+    background-color: #7067CF;
+}
+
+.ToDo-list__btn--edit:hover {
+    background-color: #5e57ac;
+}
+
+.ToDo-list__btn--delete {
+    background-color: #a82725;
+}
+
+.ToDo-list__btn--delete:hover {
+    background-color: ;
+}
+
+.ToDo-list__btn--update {
+    background-color: #FF3C38;
+}
+
+.ToDo-list__btn--update:hover {
+    background-color: #FF3C38;
+}
+
+.ToDo-list__btn--back {
+    background-color: #FF3C38;
+}
+
+.ToDo-list__btn--back:hover {
+    background-color: #FF3C38;
+}
+
+.ToDo-list__btn--delete,
+.ToDo-list__btn--back {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }

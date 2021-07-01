@@ -51,7 +51,6 @@ class Item extends Component {
 
     renderForm() {
         return (
-            
                 <form className="ToDo-list__item">
                     <input
                         className="ToDo-list__input"
@@ -60,39 +59,38 @@ class Item extends Component {
                         onChange={this.change} 
                     />
                     <button
-                        className="ToDo-list__btn-update"
+                        className="ToDo-list__btn ToDo-list__btn--update"
                         type="submit"
                         onClick={this.update}>
-                        <i class="far fa-save"></i>
+                        <i class="far fa-save ToDo-list__icon"></i>
                     </button>
                     <button
-                        className="ToDo-list__btn-edit"
+                        className="ToDo-list__btn ToDo-list__btn--back"
                         onClick={this.edit}>
-                        Exit
+                        <i class="fas fa-chevron-right ToDo-list__icon"></i>
                     </button>
                 </form>
-            
         )
     };
 
     renderTxt() {
         return (
-            <li className="ToDo-list__item">
+            <li className={"ToDo-list__item" + (this.props.item.isCompleted ? " u-completed" : "")}>
                 <span
-                    className={ this.props.item.isCompleted ? "ToDo-list__txt u-completed" : "ToDo-list__txt" }
+                    className="ToDo-list__txt"
                     onClick={this.handleClick}>
                     {this.props.item.txt}
                 </span>
                 <button
-                    className="ToDo-list__btn-edit"
+                    className="ToDo-list__btn ToDo-list__btn--edit"
                     onClick={this.edit}
                 >
-                    <i class="fas fa-pen"></i>
+                    <i class="fas fa-pen ToDo-list__icon"></i>
                 </button>
                 <button
-                    className="ToDo-list__btn-delete"
+                    className="ToDo-list__btn ToDo-list__btn--delete"
                     onClick={this.delete}>
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-times ToDo-list__icon"></i>
                 </button>
             </li>
         )

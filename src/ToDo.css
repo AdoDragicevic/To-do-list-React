@@ -22,3 +22,27 @@
     flex-grow: 1;
     font-size: 2.7rem;
 }
+
+.ToDo-options {
+    display: flex;
+    margin-top: .5rem;
+}
+
+.ToDo-options button {
+    width: 33.3333333%;
+    margin: 0 1px;
+    border-radius: 2px;
+    background-color: #5e57ac;
+    text-transform: uppercase;
+    color: #efefef;
+}
+
+.ToDo-options button:hover {
+    background-color: #7067CF;
+    color: white;
+}
+
+
+.ToDo-options button i {
+    margin-right: 5px;
+}

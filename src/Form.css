@@ -13,31 +13,21 @@
     background-color: #efefef;     
 }
 
-.ToDo-form__btn-submit {
+.ToDo-form__btn {
     padding: 0 2rem;
     font-size: 2.7rem;
     border: none;
     outline: none;
-    color: #FFDDAD;
+    color: #efefef;
     font-weight: 100;
     cursor: pointer;
+    width: 15%;
+    background-color: #5e57ac;
 }
 
-.ToDo-form__btn-submit i {
+.ToDo-form__btn i {
     font-size: 2.5rem;
     font-weight: 100;
-}
-
-.ToDo-form__btn-item {
-    color: #d88771;
-    background-color: #efefef;
-    cursor: pointer;
-    transition: all .3s ease;
-}
-
-.ToDo-form__btn-item:hover {
-    background-color: #d88771;
-    color: #efefef;
 }
 
 button {

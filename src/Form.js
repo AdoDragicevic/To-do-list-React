@@ -23,6 +23,7 @@ class Form extends Component {
             <form
                 className="ToDo-form"
                 onSubmit={this.handleSubmit}
+                autocomplete="off"
             >
                 <div className="ToDo-form__input-container">
                     <input
@@ -34,7 +35,7 @@ class Form extends Component {
                         onChange={this.handleTxtChange}
                     />
                     <button
-                        className="ToDo-form__btn-submit" 
+                        className="ToDo-form__btn" 
                         type="submit"
                         onClick={this.handleSubmit}
                     >
