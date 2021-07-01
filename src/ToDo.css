@@ -25,15 +25,15 @@
 .ToDo-list::-webkit-scrollbar,
 .ToDo-list::-webkit-scrollbar-track,
 .ToDo-list::-webkit-scrollbar-thumb {
-    width: 3em;
+    width: 3rem;
 }
 
 .ToDo-list::-webkit-scrollbar-track:vertical {
-    border-right:15px solid rgba(0,0,0,.2);
+    border-right: 1.5rem solid rgba(0,0,0,.2);
     border-radius: 3px;
 }
 .ToDo-list::-webkit-scrollbar-thumb:vertical {
-    border-right:15px solid rgba(255,255,255,.2);
+    border-right: 1.5rem solid rgba(255,255,255,.2);
     border-radius: 3px;
 }
 
@@ -49,7 +49,7 @@
 
 .ToDo-options button {
     width: 33.3333333%;
-    margin: 0 1px;
+    margin: 0 .1rem;
     border-radius: 3px;
     background-color: #5e57ac;
     text-transform: uppercase;

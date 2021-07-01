@@ -6,19 +6,19 @@
 	text-decoration: none;
 }
 
-*::selection {
-  background: #7067CF; /* WebKit/Blink Browsers */
-}
+*::selection,
 *::-moz-selection {
-  background: #7067CF; /* Gecko Browsers */
+  background: #7067CF;
+}
+
+html {
+  font-size: 62.5%; /* 1 rem = 10px */
+  height: 100vh;
 }
 
 body { 
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  /*
-  background-image: linear-gradient(120deg, #9DACFF, #9DACFF);
-  */
   background-image: linear-gradient(120deg, #3A366D, #312b6b);
   color: #3C362A;
 }
@@ -27,7 +27,10 @@ code {
   font-family: 'Quicksand', sans-serif;
 }
 
-html {
-  font-size: 62.5%; /* 1 rem = 10px */
-  height: 100vh;
+button {
+  border: 0;
+  color: white;
+  padding: .8rem;
+  outline: none;
+  cursor: pointer;
 }

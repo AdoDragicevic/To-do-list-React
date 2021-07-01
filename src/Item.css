@@ -2,6 +2,7 @@
     text-decoration: line-through;
     color: #636B61;
     opacity: .3;
+    font-style: italic;
 }
 
 .u-width-99 {
@@ -55,6 +56,7 @@
     font-family: inherit;
     font-weight: 600;
     flex-grow: 1;
+    letter-spacing: 1px;
 }
 
 .ToDo-list__input {
@@ -63,7 +65,7 @@
 
 .ToDo-list__num {
     width: 10%;
-    margin: 0 8px;
+    margin: 0 .8rem;
     font-weight: 600;
     opacity: .5;
     font-size: 1.5rem;

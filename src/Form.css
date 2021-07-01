@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: .7rem;
+    border-radius: 3px;
 }
 
 .ToDo-form__input:focus {
@@ -17,7 +18,10 @@
     flex-grow: 1;
     background-color: #dae4f5;  
     transition: all .3s ease;
-    font-family: inherit;  
+    font-family: inherit;
+    letter-spacing: 1px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 .ToDo-form__btn {
@@ -31,6 +35,8 @@
     width: 16%;
     background-color: #7067CF;
     transition: all .2s ease-out;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
 
 .ToDo-form__btn:hover {
@@ -41,17 +47,4 @@
     font-size: 2.5rem;
     font-weight: 100;
     color: #410B13;
-}
-
-button {
-  border: 0;
-  color: white;
-  padding: 8px;
-  outline: none;
-  cursor: pointer;
-  background: #00c7bd;
-}
-
-button:hover {
-  background: #00b8ae;
 }
