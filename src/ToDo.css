@@ -7,6 +7,10 @@
 .ToDo-title {
     font-size: 3.5rem;
     margin: 5rem 0 2rem 0;
+    color: #efefef;
+    letter-spacing: 3px;
+    height: 6rem;
+    overflow: hidden;
 }
 
 .ToDo-Form {
@@ -31,10 +35,11 @@
 .ToDo-options button {
     width: 33.3333333%;
     margin: 0 1px;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #5e57ac;
     text-transform: uppercase;
     color: #efefef;
+    transition: all .2s ease-out;
 }
 
 .ToDo-options button:hover {

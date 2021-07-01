@@ -62,7 +62,7 @@ class Item extends Component {
                         className="ToDo-list__btn ToDo-list__btn--update"
                         type="submit"
                         onClick={this.update}>
-                        <i class="far fa-save ToDo-list__icon"></i>
+                        <i class="fas fa-check ToDo-list__icon"></i>
                     </button>
                     <button
                         className="ToDo-list__btn ToDo-list__btn--back"
@@ -79,7 +79,10 @@ class Item extends Component {
                 <span
                     className="ToDo-list__txt"
                     onClick={this.handleClick}>
-                    {this.props.item.txt}
+                        {this.props.item.txt}
+                </span>
+                <span className="ToDo-list__num">
+                    {this.props.numOfItems && this.props.numOfItems}
                 </span>
                 <button
                     className="ToDo-list__btn ToDo-list__btn--edit"

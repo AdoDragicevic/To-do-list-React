@@ -2,6 +2,11 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    margin-bottom: .7rem;
+}
+
+.ToDo-form__input:focus {
+    background-color: #e4e8ee;
 }
 
 .ToDo-form__input {
@@ -10,7 +15,9 @@
     border: none;
     outline: none;
     flex-grow: 1;
-    background-color: #efefef;     
+    background-color: #dae4f5;  
+    transition: all .3s ease;
+    font-family: inherit;  
 }
 
 .ToDo-form__btn {
@@ -21,13 +28,19 @@
     color: #efefef;
     font-weight: 100;
     cursor: pointer;
-    width: 15%;
+    width: 16%;
+    background-color: #7067CF;
+    transition: all .2s ease-out;
+}
+
+.ToDo-form__btn:hover {
     background-color: #5e57ac;
 }
 
 .ToDo-form__btn i {
     font-size: 2.5rem;
     font-weight: 100;
+    color: #410B13;
 }
 
 button {

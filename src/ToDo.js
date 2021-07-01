@@ -114,13 +114,15 @@ class ToDo extends Component {
 
     renderCategories() {
         const { categories } = this.state;
-        return Object.keys(categories).map( key => (
+        const categoryList = Object.keys(categories);
+        return categoryList.map( name => (
             <Item 
-                item={categories[key]}
-                key={key}
+                item={categories[name]}
+                key={name}
                 delete={this.deleteCategory}
                 change={this.editCategory}
                 onClick={this.openCategory}
+                numOfItems={categories[name].items.length}
             />
         ));
     };
