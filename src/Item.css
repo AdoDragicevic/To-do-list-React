@@ -10,7 +10,7 @@
 }
 
 .a-collapse-left {
-    animation: colapseLeft .3s ease-in;
+    animation: colapseLeft .5s ease-out;
 }
 
 @keyframes colapseLeft {
@@ -43,34 +43,66 @@
     border-radius: 3px;
 }
 
+@media screen and (max-width: 600px) {    
+    .ToDo-list__item {
+        margin: 1.2rem 0;
+        height: 3.5rem;
+    }
+}
+
 .ToDo-list__txt,
 .ToDo-list__input {
-    width: 70%;
+    width: 80%;
     font-size: 2rem;
     text-align: start;
-    margin: 0 2rem;
+    margin-left: 1rem;
     line-height: 4.2rem;
     outline: none;
     border: none;
     background-color: #D6E3F8;
     font-family: inherit;
-    font-weight: 600;
+    font-weight: 500;
     flex-grow: 1;
     letter-spacing: 1px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .ToDo-list__txt,
+    .ToDo-list__input {
+        font-size: 1.5rem;
+        text-align: start;
+        margin-left: 0.5rem;
+        line-height: 3.5rem;
+        letter-spacing: 0;
+    }
 }
 
 .ToDo-list__input {
-    width: 80%;
+    width: 85%;
+}
+
+.ToDo-list__input {
+    background-color: #e4e8ee;
 }
 
 .ToDo-list__num {
-    width: 10%;
+    width: 5%;
     margin: 0 .8rem;
     font-weight: 600;
     opacity: .5;
     font-size: 1.5rem;
     line-height: 4.2rem;
     cursor: default;
+}
+
+@media screen and (max-width: 600px) {
+    .ToDo-list__num {
+        margin: 0 0.5rem;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 3.5rem;
+    }
 }
 
 .ToDo-list__input {
@@ -87,6 +119,19 @@
 .ToDo-list__icon {
     font-size: 1.8rem;
     font-weight: 100;
+}
+
+@media screen and (max-width: 600px) {
+    .ToDo-list__btn {
+        flex-grow: 1;
+        padding: 0 1.3rem;
+        min-width: 8%;
+    }
+    
+    .ToDo-list__icon {
+        font-size: 1.2rem;
+        font-weight: 100;
+    }   
 }
 
 .ToDo-list__btn--edit {

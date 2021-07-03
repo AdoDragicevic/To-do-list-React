@@ -6,7 +6,9 @@
 	text-decoration: none;
 }
 
-*::selection,
+*::selection {
+  background: #7067CF;
+}
 *::-moz-selection {
   background: #7067CF;
 }

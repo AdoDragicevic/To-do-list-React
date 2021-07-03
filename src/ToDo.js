@@ -133,14 +133,16 @@ class ToDo extends Component {
                     onClick={this.hideCompleted}
                 > 
                     <i className="fas fa-tasks"></i>
-                    { this.state.hideCompleted ? " Show Completed" : " Hide Completed" }
+                    <span>
+                        { this.state.hideCompleted ? " Show Completed" : " Hide Completed" }
+                    </span>
                 </button>
                 <button
                     className="ToDo-options__btn-delete"
                     onClick={this.handleDelete}
                 >
                     <i className="fas fa-trash"></i>
-                    Delete Category
+                    <span>Delete Category</span>
                 </button>
                 <button
                     className="ToDo-form__btn-category"
@@ -148,7 +150,7 @@ class ToDo extends Component {
                 >
                     
                     <i className="far fa-folder-open"></i>
-                    Show Cateogries
+                    <span>Show Cateogries</span>
                 </button>
             </div>
         )
@@ -172,7 +174,7 @@ class ToDo extends Component {
                     {this.state.currCategory ? this.renderItems() : this.renderCategories()}
                 </ul>
 
-                {this.state.currCategory && this.renderOptions()} 
+                {this.state.currCategory && this.renderOptions()}
 
             </div>
         )

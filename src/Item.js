@@ -18,7 +18,7 @@ class Item extends Component {
     delete = () => {
         this.setState( { collapseAnimation: true } );
         const { id, category } = this.props.item;
-        setTimeout( () => this.props.delete(id, category), 200);
+        setTimeout( () => this.props.delete(id, category), 400);
     };
 
     edit = e => {

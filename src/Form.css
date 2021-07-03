@@ -1,3 +1,7 @@
+.ToDo-Form {
+    margin: 0 auto;
+}
+
 .ToDo-form__input-container {    
     margin: 0 auto;
     display: flex;
@@ -24,6 +28,14 @@
     border-bottom-left-radius: 3px;
 }
 
+@media screen and (max-width: 600px) {
+    .ToDo-form__input {
+        padding: 0.8rem .5rem;
+        font-size: 1.8rem;
+        letter-spacing: 0;
+    }
+}
+
 .ToDo-form__btn {
     padding: 0 2rem;
     font-size: 2.7rem;
@@ -37,6 +49,12 @@
     transition: all .2s ease-out;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+    .ToDo-form__btn {
+        padding: 0;
+    }
 }
 
 .ToDo-form__btn:hover {
