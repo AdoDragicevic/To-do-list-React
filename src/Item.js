@@ -1,5 +1,7 @@
 import { Component } from "react";
 import "./Item.css";
+import "./utilities.css";
+import "./animations.css";
 
 class Item extends Component {
 
@@ -79,7 +81,7 @@ class Item extends Component {
         return (
             <li className={
                 "ToDo-list__item" + 
-                (this.props.item.isCompleted ? " u-completed" : "") +
+                (this.props.item.isCompleted ? " ToDo-list__item--completed" : "") +
                 (this.state.collapseAnimation ? " a-collapse-left" : "")
                 }
             >
