@@ -1,5 +1,4 @@
 # To-do-list-React
-Do to list with React
 
 ## To-do list made in React
 
