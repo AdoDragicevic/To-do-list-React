@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 class ToDo extends Component {
     
     state = {
-        categories: {},
+        categories: JSON.parse( window.localStorage.getItem("categories") || "{}"),
         currCategory: null,
         hideCompleted: false
     };
@@ -31,18 +31,22 @@ class ToDo extends Component {
         this.setState( { currCategory: null } );
     };
 
+    saveToLocalStorage() {
+        const categoriesStr = JSON.stringify(this.state.categories);
+        window.localStorage.setItem("categories", categoriesStr);
+    };
 
     addCategory(txt) {
         const id = uuidv4();
         const ctgs = { ...this.state.categories, [id]: { txt, id, items: [] } };
-        this.setState( { categories: ctgs, currCategory: ctgs[id] } );
+        this.setState( { categories: ctgs, currCategory: ctgs[id] }, this.saveToLocalStorage );
     };
 
     addItem(txt) {
         const item = { txt, id: uuidv4(), category: this.state.currCategory.id, isCompleted: false};
         const ctgs = { ...this.state.categories };
         ctgs[this.state.currCategory.id].items.push(item);
-        this.setState( { categories: ctgs } );
+        this.setState( { categories: ctgs }, this.saveToLocalStorage );
     };
 
     deleteCategory = id => {
@@ -51,19 +55,19 @@ class ToDo extends Component {
         for(let key in this.state.categories) {
             if(key !== ctgId) ctgs[key] = this.state.categories[key];
         }
-        this.setState( { categories: ctgs, currCategory: null } );
+        this.setState( { categories: ctgs, currCategory: null }, this.saveToLocalStorage );
     };
 
     deleteItem = (id, category) => {
         const ctgs = { ...this.state.categories };
         ctgs[category].items = ctgs[category].items.filter( item => item.id !== id );
-        this.setState( { categories: ctgs } );
+        this.setState( { categories: ctgs }, this.saveToLocalStorage );
     };
 
     editCategory = (newTxt, id) => {
         const ctgs = { ...this.state.categories };
         ctgs[id].txt = newTxt;
-        this.setState( { categories: ctgs } );
+        this.setState( { categories: ctgs }, this.saveToLocalStorage );
     };
 
     editItem = (newTxt, id, category) => {
@@ -75,7 +79,7 @@ class ToDo extends Component {
                 break;
             }
         }
-        this.setState( { categories: ctgs } );
+        this.setState( { categories: ctgs }, this.saveToLocalStorage );
     };
 
     completeItem = (id, category) => {
@@ -87,7 +91,7 @@ class ToDo extends Component {
                 break;
             }
         }
-        this.setState( { categories: ctgs } );
+        this.setState( { categories: ctgs }, this.saveToLocalStorage );
     };
 
     openCategory = id => {
