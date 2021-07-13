@@ -4,7 +4,7 @@
 
 ### Visit it on Netlify
 
-https://focused-banach-38ded5.netlify.app/
+https://wonderful-albattani-b20ed5.netlify.app/
 
 ### Functionalities
 * create categories
@@ -13,6 +13,7 @@ https://focused-banach-38ded5.netlify.app/
 * mark items as complete
 * show / hide completed items
 * delete item / category
+* local storage
 
 ### Using
 * React.js
