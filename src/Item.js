@@ -1,9 +1,9 @@
-import { Component } from "react";
+import { PureComponent } from "react";
 import "./Item.css";
 import "./utilities.css";
 import "./animations.css";
 
-class Item extends Component {
+class Item extends PureComponent {
 
     state = {
         isEditing: false,
