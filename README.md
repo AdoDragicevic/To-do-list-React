@@ -4,7 +4,7 @@
 
 ### Visit it on Netlify
 
-https://wonderful-albattani-b20ed5.netlify.app/
+https://todo-ado.netlify.app/
 
 ### Functionalities
 * create categories
