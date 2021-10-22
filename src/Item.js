@@ -4,17 +4,11 @@ import "./utilities.css";
 import "./animations.css";
 
 class Item extends PureComponent {
-
+    
     state = {
         isEditing: false,
         inputVal: this.props.item.txt,
         collapseAnimation: false
-    };
-
-
-    handleClick = () => {
-        const { id, category } = this.props.item;
-        this.props.onClick(id, category);
     };
 
     delete = () => {
@@ -47,9 +41,9 @@ class Item extends PureComponent {
         this.props.change(inputVal, id, category);
     };
 
-    complete = () => {
+    handleClick = () => {
         const { id, category } = this.props.item;
-        this.props.complete(id, category);
+        this.props.onClick(id, category);
     };
 
 
@@ -81,9 +75,9 @@ class Item extends PureComponent {
         return (
             <li className={
                 "ToDo-list__item" + 
-                (this.props.item.isCompleted ? " ToDo-list__item--completed" : "") +
+                (this.props.isCompleted ? " ToDo-list__item--completed" : "") +
                 (this.state.collapseAnimation ? " a-collapse-left" : "")
-                }
+            }
             >
                 <span
                     className="ToDo-list__txt"

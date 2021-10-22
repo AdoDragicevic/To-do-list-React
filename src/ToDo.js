@@ -111,6 +111,7 @@ class ToDo extends Component {
                 delete={this.deleteItem}
                 change={this.editItem}
                 onClick={this.completeItem}
+                isCompleted={item.isCompleted}
             />
         ));
     };
