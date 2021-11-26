@@ -1,3 +1,4 @@
+/*
 import { Component } from "react";
 import "./ToDo.css";
 import Form from "./Form";
@@ -189,3 +190,4 @@ class ToDo extends Component {
 
 
 export default ToDo;
+*/

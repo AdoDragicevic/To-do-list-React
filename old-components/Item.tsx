@@ -1,3 +1,4 @@
+/*
 import { PureComponent } from "react";
 import "./Item.css";
 import "./utilities.css";
@@ -112,3 +113,4 @@ class Item extends PureComponent {
 
 
 export default Item;
+*/
