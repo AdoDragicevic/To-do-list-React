@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import useSetAndResetState from "./hooks/useSetAndResetState";
+import useSetAndReset from "./hooks/useSetAndReset";
 import useToggle from "./hooks/useToggle";
 import todosReducer from "./reducers/todo.reducer";
 
@@ -14,8 +14,8 @@ import './App.css';
 
 const App: React.FC = () => {
 
-  const [todos, todosDispatch] = useReducer<TodosReducer, Todos>(todosReducer, [], () => []);
-  const [openedListId, setOpenedListId, resetOpenedListId] = useSetAndResetState(null); 
+  const [todos, dispatch] = useReducer<TodosReducer, Todos>(todosReducer, [], () => []);
+  const [openedListId, setOpenedListId, resetOpenedListId] = useSetAndReset(null); 
   const [showCompleted, toggleShowCompleted] = useToggle(true);
   
   const getListItems = () => {
