@@ -1,17 +1,20 @@
-class TodoObj {
+abstract class TodoObj {
   id = Math.random().toString();
   constructor(public txt: string) {};
 }
 
-export class TodoList extends TodoObj {
-  items: TodoItem[] = [];
+export class List extends TodoObj {
+  items: Item[] = [];
 }
 
-export class TodoItem extends TodoObj {
+export class Item extends TodoObj {
   isCompleted = false;
 }
 
-export type Todos = TodoList[];
+export interface Todos {
+  lists: List[];
+  openListId: null | string;
+}
 
 export enum ActionType { 
   "ADD_LIST", 
