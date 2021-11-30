@@ -17,10 +17,16 @@ const App: React.FC = () => {
   const [todos, dispatch] = useReducer<TodosReducer, Todos>(todosReducer, TODOS , () => TODOS); 
   const [showCompleted, toggleShowCompleted] = useToggle(true);
 
+  const items = (() => {
+    if (!todos.openListId) return todos.lists;
+    const items = todos.lists.find(list => list.id === todos.openListId)!.items;
+    return showCompleted ? items : items.filter(item => item.isCompleted === true);
+  })();
+
   return (
     <div className="App">
       <TodoForm />
-      <TodoList />
+      <TodoList items={items} />
       <TodoMenu
         openListId={todos.openListId}
         showCompleted={showCompleted}
