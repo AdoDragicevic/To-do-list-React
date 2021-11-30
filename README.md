@@ -1,8 +1,8 @@
 # To-do-list-React
 
-## To-do list made in React
+## Currently refactoring with TypeScript and React Hooks
 
-### Visit it on Netlify
+### Visit the previous wersion on Netlify
 
 https://todo-ado.netlify.app/
 

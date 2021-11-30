@@ -17,18 +17,15 @@ const App: React.FC = () => {
   const [todos, dispatch] = useReducer<TodosReducer, Todos>(todosReducer, TODOS , () => TODOS); 
   const [showCompleted, toggleShowCompleted] = useToggle(true);
 
-  
-
   return (
     <div className="App">
       <TodoForm />
       <TodoList />
       <TodoMenu
         openListId={todos.openListId}
-        onBack={dispatch}
-        onToggleShowCompleted={toggleShowCompleted}
-        onDelete={dispatch}
         showCompleted={showCompleted}
+        onToggleShowCompleted={toggleShowCompleted}
+        dispatch={dispatch}
       />
     </div>
   )
