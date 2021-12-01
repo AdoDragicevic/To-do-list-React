@@ -28,8 +28,7 @@ export enum ActionType {
 
 interface ReducerAction {
   type: ActionType;
-  listId?: string;
-  itemId?: string;
+  id?: string;
   txt?: string;
   isCompleted?: boolean;
 }
