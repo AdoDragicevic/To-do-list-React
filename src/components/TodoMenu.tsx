@@ -1,10 +1,12 @@
+//import { ReducerAction } from "react";
+
 import { ReducerAction } from "react";
+import { Todos } from "../models/Todos";
 
 interface TodoMenuProps {
   showCompleted: boolean;
   openListId: null | string;
   onToggleShowCompleted: () => void;
-  dispatch: (action: ReducerAction) => void;
 }
 
 const TodoMenu: React.FC<TodoMenuProps> = props => {
