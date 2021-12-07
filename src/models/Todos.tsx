@@ -14,23 +14,26 @@ export class Item extends TodoObj {
 export interface Todos {
   lists: List[];
   openListId: null | string;
+  isShowCompleted: boolean;
 }
+
+export type ListItems = List[] | Item[];
 
 export enum ActionType { 
-  "ADD_LIST", 
-  "DELETE_LIST", 
-  "UPDATE_LIST", 
-  "ADD_ITEM", 
-  "DELETE_ITEM",
-  "UPDATE_ITEM", 
-  "COMPLETE_ITEM", 
+  "ADD",
+  "DELETE", 
+  "UPDATE",
+  "COMPLETE", 
+  "TOGGLE_IS_SHOW_COMPLETED",
+  "CLOSE_LIST"
 }
 
-interface ReducerAction {
-  type: ActionType;
-  id?: string;
-  txt?: string;
-  isCompleted?: boolean;
-}
+export type DispatchAction =
+  { type: ActionType.ADD; txt: string } |
+  { type: ActionType.DELETE, id: string } |
+  { type: ActionType.UPDATE; txt: string; id: string } |
+  { type: ActionType.COMPLETE; id: string } |
+  { type: ActionType.CLOSE_LIST; } |
+  { type: ActionType.TOGGLE_IS_SHOW_COMPLETED; }
 
-export type TodosReducer = (state: Todos, action: ReducerAction) => Todos;
+export type TodosReducer = (state: Todos, action: DispatchAction) => Todos;

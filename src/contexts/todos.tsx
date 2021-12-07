@@ -1,18 +1,18 @@
-import React, { createContext, Dispatch, useReducer } from "react";
+import React, { createContext } from "react";
 import todosReducer from "../reducers/todo.reducer";
-import { Todos, TodosReducer } from "../models/Todos";
+import { Todos } from "../models/Todos";
+import useCntxAndLocStrg from "../hooks/useCtxAndLocStrg";
+
+const TODOS: Todos = { lists: [], openListId: null, isShowCompleted: true };
 
 
-export const TodosCtx = createContext<Partial<Todos>>({});
+export const TodosCtx = createContext<Todos>(TODOS);
 
 export const TodosDispatchCtx = createContext<any>(() => {});
 
-
-const TODOS = { lists: [], openListId: null };
-
 export const TodosProvider: React.FC = ({ children }) => {
   
-  const [todos, dispatch] = useReducer<TodosReducer, Todos>(todosReducer, TODOS , () => TODOS);
+  const [todos, dispatch] = useCntxAndLocStrg(todosReducer, TODOS, "todos");
   
   return (
     <TodosCtx.Provider value={todos}>

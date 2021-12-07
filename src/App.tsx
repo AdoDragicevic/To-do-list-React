@@ -1,48 +1,20 @@
-import { ReducerAction, useReducer } from "react";
-import useToggle from "./hooks/useToggle";
-import todosReducer from "./reducers/todo.reducer";
-import { ActionType, Todos, TodosReducer } from "./models/Todos";
-import { List } from "./models/Todos";
+import { TodosProvider } from "./contexts/todos";
+import Title from "./components/Title/Title";
+import Form from "./components/New/New";
+import List from "./components/List/List";
+import Menu from "./components/Menu/Menu";
 
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import TodoMenu from "./components/TodoMenu";
+import "./App.css";
 
-import './App.css';
-
-
-
-
-const App: React.FC = () => {
-
-   
-  const [showCompleted, toggleShowCompleted] = useToggle(true);
-
-  /*
-  const items = (() => {
-    if (!todos.openListId) return todos.lists;
-    const list = todos.lists.find(l => l.id === todos.openListId);
-    if (!list) throw new Error("todos.openListId does not mathc any list!");
-    return showCompleted ? list.items : list.items.filter(i => i.isCompleted);
-  })();
-
-  const addNew = (txt: string) => {
-    const type = todos.openListId ? ActionType.ADD_ITEM : ActionType.ADD_LIST;
-    dispatch({ type, txt });
-  }
-  */
-
-  return (
-    <div className="App">
-      <TodoForm />
-      <TodoList />
-      <TodoMenu
-        openListId={todos.openListId}
-        showCompleted={showCompleted}
-        onToggleShowCompleted={toggleShowCompleted}
-      />
-    </div>
-  )
-}
+const App = () => (
+  <div className="App">
+    <TodosProvider>
+      <Title />
+      <Form />
+      <List />
+      <Menu />
+    </TodosProvider>
+  </div>
+)
 
 export default App;
