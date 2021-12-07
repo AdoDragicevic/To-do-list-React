@@ -22,13 +22,14 @@ const todosReducer: TodosReducer = (todos, action): Todos => {
       let lists: List[];
       if (!openListId || (openListId && openListId === action.id)) {
         lists = todos.lists.filter(l => l.id !== action.id);
+        openListId = null;
       }
       else {
         lists = todos.lists.map(l => (
           l.id !== openListId ? l : { ...l, items: l.items.filter(i => i.id !== action.id) }
         ));
       }
-      return { ...todos, openListId: null, lists };
+      return { ...todos, openListId, lists };
     }
 
     case ActionType.UPDATE: {
