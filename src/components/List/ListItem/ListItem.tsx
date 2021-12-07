@@ -1,29 +1,26 @@
-import { useContext } from "react";
-import { TodosDispatchCtx } from "../../../contexts/todos";
 import useToggle from "../../../hooks/useToggle";
 import useInput from "../../../hooks/useInput";
 import { ListItemProps } from "../../../models/Props";
-import { ActionType } from "../../../models/Todos";
 
 import "./ListItem.css";
 
 
 const ListItem = ({ item }: ListItemProps) => {
 
-  const dispatch = useContext(TodosDispatchCtx);
-
   const [isEditing, toggleEditing] = useToggle(false);
   
-  const [val, updateVal, resetVal] = useInput(item.txt);
+  //const [val, updateVal, resetVal] = useInput(item.txt);
 
+  /*
   const handleLeftBtnClick = (e: Event) => {
     e.stopPropagation();
     toggleEditing();
     resetVal();
   }
+  */
 
+  /*
   const handleRightBtnClick = (e: Event) => {
-    e.stopPropagation();
     if (!isEditing) {
       dispatch({ type: ActionType.DELETE, id: item.id });
     }
@@ -32,10 +29,21 @@ const ListItem = ({ item }: ListItemProps) => {
       toggleEditing();
     }
   }
+  */
 
   return (
-    <li className="ListItem" onClick={e => alert("clicked")}>
+    <li className="ListItem">
+      {isEditing ? 
+        <EditItem defaultVal={val} id={item.id} toggleEdit={toggleEditing} /> : 
+        <ShowItem txt={val} id={item.id} toggleEdit={toggleEditing} />
+      }
+    </li>
+  )
+
+    /*
+    <li className="ListItem">
       <div className="ListItem__txt">
+        
         <input 
           className="ListItem__input"
           type="text"  
@@ -54,7 +62,9 @@ const ListItem = ({ item }: ListItemProps) => {
         </button>
       </div>
     </li>
+    
   )
+  */
 }
 
 export default ListItem;
