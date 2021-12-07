@@ -50,7 +50,7 @@
 }
 
 .ListItem__input {
-  width: 85%;
+  width: 80%;
   background-color: #e4e8ee;
 }
 
@@ -87,6 +87,18 @@
   min-width: 8%;
   transition: all .2s ease-out;
 }
+
+.ListItem__btns {
+  width: 16%;
+  display: flex;
+  flex-direction: row;
+}
+
+.ListItem__btns button {
+  flex-grow: 1;
+  width: 50%;
+}
+
 
 .ListItem__icon {
   font-size: 1.8rem;
@@ -142,4 +154,20 @@
 .ListItem__btn--back {
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
+}
+
+.ListItem__icon {
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+
+@media screen and (max-width: 600px) {  
+  .ListItem__icon {
+      font-size: 1.2rem;
+      font-weight: 100;
+  }   
+}
+
+.ListItem__input {
+  background-color: #e4e8ee;
 }

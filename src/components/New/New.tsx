@@ -4,6 +4,7 @@ import { ActionType } from "../../models/Todos";
 
 import "./New.css";
 
+
 const New = () => {
 
   const { openListId } = useContext(TodosCtx);

@@ -13,7 +13,7 @@ const ListItem = ({ item }: ListItemProps) => {
 
   return (
     <li className="ListItem">
-      {isEditing ? 
+      {isEditing ?
         <EditItem txt={item.txt} id={item.id} toggleEdit={toggleEdit} /> : 
         <ShowItem txt={item.txt} id={item.id} toggleEdit={toggleEdit} />
       }

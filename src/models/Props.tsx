@@ -9,3 +9,9 @@ export interface ItemProps {
   id: string;
   toggleEdit: () => void;
 }
+
+export interface MenuBtnProps {
+  txt: string;
+  icon: string;
+  onClick: () => void;
+}

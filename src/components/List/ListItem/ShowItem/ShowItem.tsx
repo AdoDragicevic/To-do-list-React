@@ -1,24 +1,33 @@
 import { useContext } from "react";
-import { TodosDispatchCtx } from "../../../../contexts/todos";
+import { TodosCtx, TodosDispatchCtx } from "../../../../contexts/todos";
 import { ItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
 const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
   
+  const { openListId } = useContext(TodosCtx);
+
   const dispatch = useContext(TodosDispatchCtx);
   
-  const handleClick = () => dispatch({ type: ActionType.DELETE, id });
+  const handleClick = () => {
+    if (openListId) dispatch({ type: ActionType.TOGGLE_COMPLETE });
+    else dispatch({ type: ActionType.OPEN_LIST, id }); 
+  }
+
+  const handleDelete = () => dispatch({ type: ActionType.DELETE, id });
 
   return (
-    <div>
-      <div>
-        {txt}
+    <>
+      <div className="ListItem__txt" onClick={handleClick}> {txt} </div>
+      <div className="ListItem__btns">
+        <button className="ListItem__btn--edit" onClick={toggleEdit}>
+          <i className="fas fa-pen ListItem__icon"></i>
+        </button>
+        <button className="ListItem__btn--delete" onClick={handleDelete}>
+          <i className="fas fa-times ListItem__icon"></i>
+        </button>
       </div>
-      <div>
-        <button onClick={toggleEdit}>Edit</button>
-        <button onClick={handleClick}>Delete</button>
-      </div>
-    </div>
+    </>
   )
 }
 

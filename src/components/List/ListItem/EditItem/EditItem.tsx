@@ -3,6 +3,9 @@ import { TodosDispatchCtx } from "../../../../contexts/todos";
 import { ItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
+import "./EditItem.css";
+
+
 const EditItem = ({ txt, id, toggleEdit }: ItemProps) => {
   
   const dispatch = useContext(TodosDispatchCtx);
@@ -11,21 +14,20 @@ const EditItem = ({ txt, id, toggleEdit }: ItemProps) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const updatedTxt = inputRef!.current!.value;
+    if (updatedTxt !== txt) dispatch({ type: ActionType.UPDATE, txt: updatedTxt, id });
     toggleEdit();
-    dispatch({ type: ActionType.UPDATE, txt: inputRef!.current!.value, id });
   }
   
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input type="text" defaultValue={txt} ref={inputRef} />
-      </div>
-      <div>
-        <button onClick={toggleEdit}>
-          Edit
+    <form className="EditItem" onSubmit={handleSubmit}>
+      <input className="ListItem__txt ListItem__input" type="text" defaultValue={txt} ref={inputRef} />
+      <div className="ListItem__btns">
+        <button className="ListItem__btn--update" type="submit">
+          <i className="fas fa-check ListItem__icon"></i>
         </button>
-        <button type="submit">
-          Save
+        <button className="ListItem__btn--back" type="button" onClick={toggleEdit}>
+          <i className="fas fa-chevron-right ListItem__icon"></i>
         </button>
       </div>
     </form>

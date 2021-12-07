@@ -1,23 +1,36 @@
+import { useContext } from "react";
+import { TodosCtx, TodosDispatchCtx } from "../../contexts/todos";
+import { ActionType } from "../../models/Todos";
+
+import MenuBtn from "./MenuBtn/MenuBtn";
+
 import "./Menu.css";
 
 const Menu = () => {
-  return (
+
+  const { openListId, isShowCompleted } = useContext(TodosCtx);
+
+  const dispatch = useContext(TodosDispatchCtx);
+
+  if (!openListId) return null;
+  
+  else return (
     <div className="Menu">
-      <button className="ToDoMenu__btn-category">
-        <i className="far fa-folder-open"></i>
-        <span>Show Cateogries</span>
-      </button>
-      <button className="TodoMenu__btn-ccompleted">
-        <i className="fas fa-tasks"></i>
-        <span>
-          { //props.showCompleted ? " Show Completed" : " Hide Completed" 
-          }
-        </span>
-      </button>
-      <button className="ToDoMenu__btn-delete">
-        <i className="fas fa-trash"></i>
-        <span>Delete Category</span>
-      </button>
+      <MenuBtn 
+        txt="Show Lists" 
+        icon="far fa-folder-open" 
+        onClick={() => dispatch({ type: ActionType.CLOSE_LIST })} 
+      />
+      <MenuBtn 
+        txt={isShowCompleted ? " Show Completed" : " Hide Completed"} 
+        icon="fas fa-tasks" 
+        onClick={() => dispatch({ type: ActionType.TOGGLE_SHOW_COMPLETED })} 
+      />
+      <MenuBtn 
+        txt="Delete List" 
+        icon="fas fa-trash" 
+        onClick={() => dispatch({ type: ActionType.DELETE, id: openListId })} 
+      />
     </div>
   )
 }

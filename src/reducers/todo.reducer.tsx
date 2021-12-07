@@ -47,8 +47,21 @@ const todosReducer: TodosReducer = (todos, action): Todos => {
       return { ...todos, lists };
     }
 
-    case ActionType.TOGGLE_IS_SHOW_COMPLETED:
+    case ActionType.TOGGLE_COMPLETE: {
+      const lists = todos.lists.map(l => (
+        l.id !== todos.openListId ? l : { ...l, items: l.items.map(i => (
+          i.id !== action.id ? i : { ...i, isCompleted: !i.isCompleted }
+        ))}
+      ))
+      return { ...todos, lists };
+    }
+
+    case ActionType.TOGGLE_SHOW_COMPLETED:
       return { ...todos, isShowCompleted: !todos.isShowCompleted };
+
+    case ActionType.OPEN_LIST: {
+      return { ...todos, openListId: action.id };
+    }
 
     case ActionType.CLOSE_LIST:
       return { ...todos, openListId: null };

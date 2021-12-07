@@ -23,8 +23,9 @@ export enum ActionType {
   "ADD",
   "DELETE", 
   "UPDATE",
-  "COMPLETE", 
-  "TOGGLE_IS_SHOW_COMPLETED",
+  "TOGGLE_COMPLETE",
+  "TOGGLE_SHOW_COMPLETED",
+  "OPEN_LIST",
   "CLOSE_LIST"
 }
 
@@ -32,8 +33,10 @@ export type DispatchAction =
   { type: ActionType.ADD; txt: string } |
   { type: ActionType.DELETE, id: string } |
   { type: ActionType.UPDATE; txt: string; id: string } |
-  { type: ActionType.COMPLETE; id: string } |
-  { type: ActionType.CLOSE_LIST; } |
-  { type: ActionType.TOGGLE_IS_SHOW_COMPLETED; }
+  { type: ActionType.TOGGLE_COMPLETE; id: string } |
+  { type: ActionType.TOGGLE_COMPLETE, id: string } |
+  { type: ActionType.TOGGLE_SHOW_COMPLETED; } |
+  { type: ActionType.OPEN_LIST, id: string } |
+  { type: ActionType.CLOSE_LIST; }
 
 export type TodosReducer = (state: Todos, action: DispatchAction) => Todos;
