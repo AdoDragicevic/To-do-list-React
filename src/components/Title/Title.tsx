@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { TodosCtx } from "../../contexts/todos";
 
-import "./Title.css";
 
 const Title = () => {
 
