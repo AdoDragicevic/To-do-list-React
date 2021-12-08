@@ -22,7 +22,7 @@ const Menu = () => {
         onClick={() => dispatch({ type: ActionType.CLOSE_LIST })} 
       />
       <MenuBtn 
-        txt={isShowCompleted ? " Show Completed" : " Hide Completed"} 
+        txt={isShowCompleted ? "Hide Completed" : "Show Completed"} 
         icon="fas fa-tasks" 
         onClick={() => dispatch({ type: ActionType.TOGGLE_SHOW_COMPLETED })} 
       />

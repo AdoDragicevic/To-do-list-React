@@ -7,15 +7,17 @@ import ShowItem from "./ShowItem/ShowItem";
 import "./ListItem.css";
 
 
-const ListItem = ({ item }: ListItemProps) => {
+const ListItem = ({ txt, id, isCompleted }: ListItemProps) => {
 
   const [isEditing, toggleEdit] = useToggle(false);
 
+  const css = `ListItem ${isCompleted ? "ListItem--completed" : ""}`;
+
   return (
-    <li className="ListItem">
+    <li className={css}>
       {isEditing ?
-        <EditItem txt={item.txt} id={item.id} toggleEdit={toggleEdit} /> : 
-        <ShowItem txt={item.txt} id={item.id} toggleEdit={toggleEdit} />
+        <EditItem txt={txt} id={id} toggleEdit={toggleEdit} /> : 
+        <ShowItem txt={txt} id={id} toggleEdit={toggleEdit} />
       }
     </li>
   )

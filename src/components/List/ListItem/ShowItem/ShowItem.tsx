@@ -3,6 +3,7 @@ import { TodosCtx, TodosDispatchCtx } from "../../../../contexts/todos";
 import { ItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
+
 const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
   
   const { openListId } = useContext(TodosCtx);
@@ -10,7 +11,7 @@ const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
   const dispatch = useContext(TodosDispatchCtx);
   
   const handleClick = () => {
-    if (openListId) dispatch({ type: ActionType.TOGGLE_COMPLETE });
+    if (openListId) dispatch({ type: ActionType.TOGGLE_COMPLETE, id });
     else dispatch({ type: ActionType.OPEN_LIST, id }); 
   }
 

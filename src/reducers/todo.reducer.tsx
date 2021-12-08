@@ -52,7 +52,7 @@ const todosReducer: TodosReducer = (todos, action): Todos => {
         l.id !== todos.openListId ? l : { ...l, items: l.items.map(i => (
           i.id !== action.id ? i : { ...i, isCompleted: !i.isCompleted }
         ))}
-      ))
+      ));
       return { ...todos, lists };
     }
 

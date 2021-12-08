@@ -13,8 +13,8 @@ const List = () => {
   const items = getListItems(lists, openListId, isShowCompleted);
 
   return (
-    <ul className="List">
-      {items.map(item => <ListItem key={item.id} item={item} />)}
+    <ul className="List"> 
+      {items.map(item => <ListItem key={item.id} {...item} />)}
     </ul>
   )
 }
