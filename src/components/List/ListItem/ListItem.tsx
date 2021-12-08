@@ -11,7 +11,7 @@ const ListItem = ({ txt, id, isCompleted }: ListItemProps) => {
 
   const [isEditing, toggleEdit] = useToggle(false);
 
-  const css = `ListItem ${isCompleted ? "ListItem--completed" : ""}`;
+  const css = `ListItem ${!isEditing && isCompleted ? "ListItem--completed" : ""}`;
 
   return (
     <li className={css}>
