@@ -4,7 +4,7 @@ import Form from "./components/New/New";
 import List from "./components/List/List";
 import Menu from "./components/Menu/Menu";
 
-import "./App.css";
+import "./styles/main.scss";
 
 const App = () => (
   <div className="App">
