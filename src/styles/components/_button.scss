@@ -36,11 +36,10 @@
 
   &--delete, &--back, &--edit, &--update {
     flex-grow: 1;
-    width: 50%;
-    padding: 0 2rem;
-    min-width: 8%;
+    min-width: 50%;
   }
   
+
   &--delete, &--back {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -79,7 +78,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   &--delete, &--back, &--edit, &--update {
     padding: 0 1.3rem;
   }

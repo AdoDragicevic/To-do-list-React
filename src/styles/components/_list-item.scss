@@ -14,6 +14,7 @@
 
   &__txt {
     font-size: 2rem;
+    width: 85%;
     margin-left: 1rem;
     line-height: 4.2rem;
     outline: none;
@@ -26,7 +27,7 @@
   }
 
   &__amount {
-    min-width: 5%;
+    min-width: 4%;
     font-weight: 600;
     opacity: .5;
     font-size: 1.5rem;
@@ -55,14 +56,14 @@
       }
 
       &__amount {
-        margin: 0 0.5rem;
+        margin: 0 0.1rem;
         font-weight: 400;
         font-size: 1.5rem;
         line-height: 3.5rem;
       }
 
       &__btns {
-        width: 24%;
+        width: 8%;
       }
   }
 }
