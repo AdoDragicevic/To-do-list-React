@@ -1,0 +1,27 @@
+.icon {
+  font-weight: 100;
+
+  &--new {
+    color: #410B13;
+  }
+
+  &--list-item {
+    font-size: 1.8rem;
+  }
+
+  &--menu {
+    margin-right: .7rem;
+    font-size: 1.5rem;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .icon--menu {
+      margin-right: 0;
+  }
+  .icon--list-item {
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
+}

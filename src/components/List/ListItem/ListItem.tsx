@@ -4,8 +4,6 @@ import { ListItemProps } from "../../../models/Props";
 import EditItem from "./EditItem/EditItem";
 import ShowItem from "./ShowItem/ShowItem";
 
-import "./ListItem.css";
-
 
 const ListItem = ({ txt, id, isCompleted }: ListItemProps) => {
 

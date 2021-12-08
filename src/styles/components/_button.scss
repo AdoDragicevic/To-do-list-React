@@ -11,8 +11,6 @@
   &--new {
     padding: 0 2rem;
     font-size: 2.7rem;
-    font-weight: 100;
-    cursor: pointer;
     width: 16%;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -22,11 +20,6 @@
 
     &:hover {
       background-color: #5e57ac;
-    }
-
-    & i {
-      font-weight: 100;
-      color: #410B13;
     }
   }
 
@@ -39,12 +32,13 @@
       color: white;
       letter-spacing: .2px;
     }
+  }
 
-    & i {
-      margin-right: .7rem;
-      font-weight: 100;
-      font-size: 1.5rem;
-    }
+  &--delete, &--back, &--edit, &--update {
+    flex-grow: 1;
+    width: 50%;
+    padding: 0 2rem;
+    min-width: 8%;
   }
   
   &--delete, &--back {
@@ -86,7 +80,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .btn--menu i {
-      margin-right: 0;
+  &--delete, &--back, &--edit, &--update {
+    padding: 0 1.3rem;
   }
 }

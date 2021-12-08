@@ -21,11 +21,11 @@ const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
     <>
       <div className="list-item__txt" onClick={handleClick}> {txt} </div>
       <div className="list-item__btns">
-        <button className="btn--edit" onClick={toggleEdit}>
-          <i className="fas fa-pen list-item__icon" />
+        <button className="btn btn--edit" onClick={toggleEdit}>
+          <i className="fas fa-pen icon icon--list-item" />
         </button>
-        <button className="btn--delete" onClick={handleDelete}>
-          <i className="fas fa-times list-item__icon" />
+        <button className="btn btn--delete" onClick={handleDelete}>
+          <i className="fas fa-times icon icon--list-item" />
         </button>
       </div>
     </>

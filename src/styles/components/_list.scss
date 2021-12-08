@@ -1,22 +1,23 @@
 .list {
   height: 60vh;
   overflow-y: auto;
-}
+  list-style: none;
 
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    width: 3rem;
+  }
 
-.list::-webkit-scrollbar,
-.list::-webkit-scrollbar-track,
-.list::-webkit-scrollbar-thumb {
-  width: 3rem;
-}
+  &::-webkit-scrollbar-track:vertical {
+    border-right: 1.5rem solid rgba(0,0,0,.2);
+    border-radius: 3px;
+  }
 
-.list::-webkit-scrollbar-track:vertical {
-  border-right: 1.5rem solid rgba(0,0,0,.2);
-  border-radius: 3px;
-}
-.list::-webkit-scrollbar-thumb:vertical {
-  border-right: 1.5rem solid rgba(255,255,255,.2);
-  border-radius: 3px;
+  &::-webkit-scrollbar-thumb:vertical {
+    border-right: 1.5rem solid rgba(255,255,255,.2);
+    border-radius: 3px;
+  }
 }
 
 @media screen and (max-width: 500px) {
