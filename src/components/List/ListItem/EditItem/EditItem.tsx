@@ -3,8 +3,6 @@ import { TodosDispatchCtx } from "../../../../contexts/todos";
 import { ItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
-import "./EditItem.css";
-
 
 const EditItem = ({ txt, id, toggleEdit }: ItemProps) => {
   
@@ -20,14 +18,14 @@ const EditItem = ({ txt, id, toggleEdit }: ItemProps) => {
   }
   
   return (
-    <form className="EditItem" onSubmit={handleSubmit}>
-      <input className="ListItem__txt ListItem__input" type="text" defaultValue={txt} ref={inputRef} />
-      <div className="ListItem__btns">
-        <button className="ListItem__btn--update" type="submit">
-          <i className="fas fa-check ListItem__icon"></i>
+    <form className="d-flex w-100%" onSubmit={handleSubmit}>
+      <input className="list-item__txt ListItem__input input input--list-item" type="text" defaultValue={txt} ref={inputRef} />
+      <div className="list-item__btns">
+        <button className="btn--update" type="submit">
+          <i className="fas fa-check list-item__icon" />
         </button>
-        <button className="ListItem__btn--back" type="button" onClick={toggleEdit}>
-          <i className="fas fa-chevron-right ListItem__icon"></i>
+        <button className="btn--back" type="button" onClick={toggleEdit}>
+          <i className="fas fa-chevron-right list-item__icon" />
         </button>
       </div>
     </form>

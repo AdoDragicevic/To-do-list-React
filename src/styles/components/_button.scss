@@ -46,6 +46,43 @@
       font-size: 1.5rem;
     }
   }
+  
+  &--delete, &--back {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+
+  &--edit {
+    background-color: #7067CF;
+
+    &:hover {
+      background-color: #5e57ac;
+    }
+  }
+
+  &--delete {
+    background-color:  #a82725;
+
+    &:hover {
+      background-color: #8b1c1a;
+    }
+  }
+
+  &--update {
+    background-color: #156360;
+
+    &:hover {
+      background-color: #115754;
+    }
+  }
+
+  &--back {
+    background-color: #790363;
+
+    &:hover {
+      background-color: #5c034c;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {

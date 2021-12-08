@@ -19,13 +19,13 @@ const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
 
   return (
     <>
-      <div className="ListItem__txt" onClick={handleClick}> {txt} </div>
-      <div className="ListItem__btns">
-        <button className="ListItem__btn--edit" onClick={toggleEdit}>
-          <i className="fas fa-pen ListItem__icon"></i>
+      <div className="list-item__txt" onClick={handleClick}> {txt} </div>
+      <div className="list-item__btns">
+        <button className="btn--edit" onClick={toggleEdit}>
+          <i className="fas fa-pen list-item__icon" />
         </button>
-        <button className="ListItem__btn--delete" onClick={handleDelete}>
-          <i className="fas fa-times ListItem__icon"></i>
+        <button className="btn--delete" onClick={handleDelete}>
+          <i className="fas fa-times list-item__icon" />
         </button>
       </div>
     </>

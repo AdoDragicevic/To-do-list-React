@@ -11,7 +11,7 @@ const ListItem = ({ txt, id, isCompleted }: ListItemProps) => {
 
   const [isEditing, toggleEdit] = useToggle(false);
 
-  const css = `ListItem ${!isEditing && isCompleted ? "ListItem--completed" : ""}`;
+  const css = `bord-rad list-item ${!isEditing && isCompleted ? "list-item--completed" : ""}`;
 
   return (
     <li className={css}>

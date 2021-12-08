@@ -4,7 +4,6 @@
   border: none;
   outline: none;
   background-color: #dae4f5;
-  font-family: inherit;
   letter-spacing: 1px;
 
   &:focus {
@@ -12,15 +11,24 @@
   }
 
   &--new {
+    font-family: inherit;
     padding: 1rem 2rem;
     width: 84%; 
     transition: all .3s ease;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }
+
+  &--list-item {
+    width: 80%;
+    margin-left: 1rem;
+    line-height: 4.2rem;
+    font-weight: 400;
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: #e4e8ee;
+  }
 }
-
-
 
 @media screen and (max-width: 600px) {
   .input {
@@ -31,6 +39,13 @@
         font-size: 1.8rem;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+      }
+
+      &--list-item {
+        font-size: 1.5rem;
+        text-align: start;
+        margin-left: 1rem;
+        line-height: 3.5rem;
       }
   }
 }
