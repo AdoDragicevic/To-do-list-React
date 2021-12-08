@@ -4,7 +4,7 @@ import { ItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
 
-const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
+const ShowItem = ({ txt, id, nOfItems, toggleEdit }: ItemProps) => {
   
   const { openListId } = useContext(TodosCtx);
 
@@ -20,6 +20,7 @@ const ShowItem = ({ txt, id, toggleEdit }: ItemProps) => {
   return (
     <>
       <div className="list-item__txt" onClick={handleClick}> {txt} </div>
+      <span className="list-item__amount">{nOfItems}</span>
       <div className="list-item__btns">
         <button className="btn btn--edit" onClick={toggleEdit}>
           <i className="fas fa-pen icon icon--list-item" />
