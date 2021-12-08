@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { TodosCtx, TodosDispatchCtx } from "../../../../contexts/todos";
-import { ItemProps } from "../../../../models/Props";
+import { ShowItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
 
-const ShowItem = ({ txt, id, nOfItems, toggleEdit }: ItemProps) => {
+const ShowItem = ({ txt, id, nOfItems, onDelete, toggleEdit }: ShowItemProps) => {
   
   const { openListId } = useContext(TodosCtx);
 
@@ -15,7 +15,10 @@ const ShowItem = ({ txt, id, nOfItems, toggleEdit }: ItemProps) => {
     else dispatch({ type: ActionType.OPEN_LIST, id }); 
   }
 
-  const handleDelete = () => dispatch({ type: ActionType.DELETE, id });
+  const handleDelete = () => {
+    onDelete();
+    setTimeout(() => dispatch({ type: ActionType.DELETE, id }), 400);    
+  }
 
   return (
     <>

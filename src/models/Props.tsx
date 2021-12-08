@@ -7,11 +7,15 @@ export interface ListItemProps {
   items?: Item[];
 }
 
-export interface ItemProps {
+export interface EditItemProps {
   txt: string;
   id: string;
-  nOfItems?: number;
   toggleEdit: () => void;
+}
+
+export interface ShowItemProps extends EditItemProps {
+  nOfItems?: number;
+  onDelete: () => void;
 }
 
 export interface MenuBtnProps {

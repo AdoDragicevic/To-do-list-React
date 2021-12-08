@@ -1,10 +1,10 @@
 import { FormEvent, useContext, useRef } from "react";
 import { TodosDispatchCtx } from "../../../../contexts/todos";
-import { ItemProps } from "../../../../models/Props";
+import { EditItemProps } from "../../../../models/Props";
 import { ActionType } from "../../../../models/Todos";
 
 
-const EditItem = ({ txt, id, toggleEdit }: ItemProps) => {
+const EditItem = ({ txt, id, toggleEdit }: EditItemProps) => {
   
   const dispatch = useContext(TodosDispatchCtx);
 

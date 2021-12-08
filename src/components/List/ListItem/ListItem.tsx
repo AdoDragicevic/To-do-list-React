@@ -9,13 +9,29 @@ const ListItem = ({ txt, id, isCompleted, items }: ListItemProps) => {
 
   const [isEditing, toggleEdit] = useToggle(false);
 
-  const css = `bord-rad list-item ${!isEditing && isCompleted ? "list-item--completed" : ""}`;
+  const [isDeleteAnimation, toggleDeleteAnimation] = useToggle(false);  
+
+  const css = `bord-rad 
+              list-item 
+              ${!isEditing && isCompleted ? "list-item--completed" : ""}
+              ${isDeleteAnimation ? "a-collapse-left" : ""}  
+            `;
 
   return (
     <li className={css}>
       {isEditing ?
-        <EditItem txt={txt} id={id} toggleEdit={toggleEdit} /> : 
-        <ShowItem txt={txt} id={id} toggleEdit={toggleEdit} nOfItems={items?.length} />
+        <EditItem 
+          txt={txt} 
+          id={id} 
+          toggleEdit={toggleEdit} 
+        /> : 
+        <ShowItem 
+          txt={txt} 
+          id={id} 
+          toggleEdit={toggleEdit} 
+          nOfItems={items?.length} 
+          onDelete={toggleDeleteAnimation} 
+        />
       }
     </li>
   )
