@@ -7,7 +7,7 @@ import Menu from "./components/Menu/Menu";
 import "./styles/main.scss";
 
 const App = () => (
-  <div className="App">
+  <div className="container">
     <TodosProvider>
       <Title />
       <Form />

@@ -1,6 +1,10 @@
-.App {
-  width: 90vw;
-  max-width: 80rem;
-  margin: 0 auto;
-  margin-bottom: 1rem;    
-}
+@import "abstracts/variables";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+@import "base/animations";
+@import "layout/container";
+@import "components/title";
+@import "components/new";
+@import "components/list";
+@import "components/menu";

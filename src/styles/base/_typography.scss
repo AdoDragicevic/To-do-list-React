@@ -1,0 +1,15 @@
+*::selection {
+  background: $color-primary;
+}
+*::-moz-selection {
+  background: $color-primary;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #3C362A;
+}
+
+code {
+  font-family: 'Quicksand', sans-serif;
+}
