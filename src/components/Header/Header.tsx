@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TodosCtx } from "../../contexts/todos";
 
 
-const Title = () => {
+const Header = () => {
 
   const { lists, openListId } = useContext(TodosCtx);
 
@@ -12,7 +12,7 @@ const Title = () => {
     return list?.txt;
   })();
 
-  return <h1 className="title">{title}</h1>
+  return <h1 className="header">{title}</h1>
 }
 
-export default Title;
+export default Header;

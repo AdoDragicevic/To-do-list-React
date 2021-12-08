@@ -7,8 +7,14 @@ body {
 }
 
 .container {
+  margin: 0 auto;
   width: 90vw;
   max-width: 80rem;
-  margin: 0 auto;
   margin-bottom: 1rem;    
+}
+
+.New__container {    
+  margin: 0 auto;
+  margin-bottom: .7rem;
+  border-radius: 3px;
 }

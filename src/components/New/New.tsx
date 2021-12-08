@@ -2,8 +2,6 @@ import { FormEvent, useContext, useRef } from "react";
 import { TodosCtx, TodosDispatchCtx } from "../../contexts/todos";
 import { ActionType } from "../../models/Todos";
 
-import "./New.css";
-
 
 const New = () => {
 
@@ -24,10 +22,10 @@ const New = () => {
   }
   
   return (
-    <form className="New" onSubmit={handleSubmit}>
-      <div className="New__container">
-        <input className="New__input" type="text" placeholder={placeholderMsg} ref={inputRef} />
-        <button className="New__btn">+</button>
+    <form onSubmit={handleSubmit}>
+      <div className="d-flex mb-sm bord-rad">
+        <input className="input input--new" type="text" placeholder={placeholderMsg} ref={inputRef} />
+        <button className="btn btn--new">+</button>
       </div>
     </form>
   )

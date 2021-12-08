@@ -1,4 +1,4 @@
-.title {
+.header {
   font-size: 3.5rem;
   margin: 5rem 0 2rem 0;
   letter-spacing: 1.5px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .title {
+  .header {
       font-weight: 300;
       margin: 2.2rem auto;
   }

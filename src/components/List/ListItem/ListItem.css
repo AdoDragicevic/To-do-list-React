@@ -25,12 +25,10 @@
 .ListItem__input {
   width: 80%;
   font-size: 2rem;
-  text-align: start;
   margin-left: 1rem;
   line-height: 4.2rem;
   outline: none;
   border: none;
-  background-color: #D6E3F8;
   font-family: inherit;
   font-weight: 500;
   flex-grow: 1;
@@ -49,14 +47,28 @@
   }
 }
 
+
+
 .ListItem__input {
-  width: 80%;
   background-color: #e4e8ee;
 }
 
 .ListItem__input:disabled {
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .ListItem__amount {
   width: 5%;
@@ -168,6 +180,3 @@
   }   
 }
 
-.ListItem__input {
-  background-color: #e4e8ee;
-}

@@ -1,0 +1,36 @@
+.input {
+
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: #dae4f5;
+  font-family: inherit;
+  letter-spacing: 1px;
+
+  &:focus {
+    background-color: #e4e8ee;
+  }
+
+  &--new {
+    padding: 1rem 2rem;
+    width: 84%; 
+    transition: all .3s ease;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .input {
+      letter-spacing: 0;
+
+      &--new {
+        padding: 0.8rem 1rem;
+        font-size: 1.8rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+  }
+}
