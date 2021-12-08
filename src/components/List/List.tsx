@@ -4,7 +4,6 @@ import { getListItems } from "../../helpers/helpers";
 
 import ListItem from "./ListItem/ListItem";
 
-import "./List.css";
 
 const List = () => {
   
@@ -13,7 +12,7 @@ const List = () => {
   const items = getListItems(lists, openListId, isShowCompleted);
 
   return (
-    <ul className="List"> 
+    <ul className="list"> 
       {items.map(item => <ListItem key={item.id} {...item} />)}
     </ul>
   )

@@ -25,7 +25,9 @@ const New = () => {
     <form onSubmit={handleSubmit}>
       <div className="d-flex mb-sm bord-rad">
         <input className="input input--new" type="text" placeholder={placeholderMsg} ref={inputRef} />
-        <button className="btn btn--new">+</button>
+        <button className="btn btn--new">
+          <i className="far fa-plus" />
+        </button>
       </div>
     </form>
   )

@@ -4,7 +4,6 @@ import { ActionType } from "../../models/Todos";
 
 import MenuBtn from "./MenuBtn/MenuBtn";
 
-import "./Menu.css";
 
 const Menu = () => {
 
@@ -15,7 +14,7 @@ const Menu = () => {
   if (!openListId) return null;
   
   else return (
-    <div className="Menu">
+    <div className="d-flex mt-lg">
       <MenuBtn 
         txt="Show Lists" 
         icon="far fa-folder-open" 

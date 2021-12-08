@@ -2,8 +2,18 @@
   display: flex;
 }
 
+@media screen and (max-width: 600px) {
+  .d-none-sm {
+    display: none;
+  }
+}
+
 .mb-sm {
   margin-bottom: .7rem;
+}
+
+.mt-lg {
+  margin-top: 1.5rem;
 }
 
 .bord-rad {
