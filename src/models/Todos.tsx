@@ -18,13 +18,7 @@ export interface Todos {
 }
 
 export type ListItems = List[] | Item[];
-/*
-export interface ListItems {
-  txt: string;
-  id: string;
-  isComplete?: boolean;
-}
-*/
+
 export enum ActionType { 
   "ADD",
   "DELETE", 

@@ -9,7 +9,7 @@ const ShowItem = ({ txt, id, nOfItems, onDelete, toggleEdit }: ShowItemProps) =>
   const { openListId } = useContext(TodosCtx);
 
   const dispatch = useContext(TodosDispatchCtx);
-  
+
   const handleClick = () => {
     if (openListId) dispatch({ type: ActionType.TOGGLE_COMPLETE, id });
     else dispatch({ type: ActionType.OPEN_LIST, id }); 
