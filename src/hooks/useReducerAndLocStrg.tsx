@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { Todos, TodosReducer } from "../models/Todos"; 
 
-function useCntxAndLocStrg(reducer: TodosReducer, initState: Todos, key: string): [Todos, Function] {
+function useReducerAndLocStrg(reducer: TodosReducer, initState: Todos, key: string): [Todos, Function] {
 
   const [state, dispatch] = useReducer(reducer, initState, () => {
     const storedData = localStorage.getItem(key);
@@ -13,4 +13,4 @@ function useCntxAndLocStrg(reducer: TodosReducer, initState: Todos, key: string)
   return [state, dispatch];
 }
 
-export default useCntxAndLocStrg;
+export default useReducerAndLocStrg;
