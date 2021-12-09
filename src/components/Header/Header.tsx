@@ -1,16 +1,13 @@
 import { useContext } from "react";
 import { TodosCtx } from "../../contexts/todos";
+import { Item } from "../../models/Todos";
 
 
 const Header = () => {
 
   const { lists, openListId } = useContext(TodosCtx);
 
-  const title = (() => {
-    if (!openListId) return "Lists";
-    const list = lists?.find(l => l.id === openListId);
-    return list?.txt;
-  })();
+  const title = openListId ? (lists.find(l => l.id === openListId))!.txt : "Lists"; 
 
   return <h1 className="header">{title}</h1>
 }

@@ -13,7 +13,7 @@ const Menu = () => {
 
   if (!openListId) return null;
   
-  else return (
+  return (
     <div className="d-flex mt-lg">
       <MenuBtn 
         txt="Show Lists" 
