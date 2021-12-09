@@ -9,7 +9,7 @@ https://todo-ado.netlify.app/
 * Sass (BEM)
 
 ### FUNCTIONALITIES
-* create lists & add items to lists
+* create lists & add items
 * edit lists / items
 * delete lists / items
 * mark items as complete
