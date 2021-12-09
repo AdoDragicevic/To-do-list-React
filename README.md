@@ -18,4 +18,4 @@ https://todo-ado.netlify.app/
 * local storage
 
 ### WHAT I LEARNED
-As I started learning React I made this app with class components. I also designed it to look beautiful and intuitive to use. When I learned TypeScript I returned to completely refactor the app with TS and my new gained react knowledge. Using Context might be an overkill for such a small app, but I wanted to demonstrate my knowledge.
+As I started learning React I made this app with class components. I also designed it to look beautiful and intuitive. After learning TypeScript I returned to completely refactor the app with TS and my new gained react knowledge. Using Context might be an overkill for such a small app, but I wanted to demonstrate my knowledge.
