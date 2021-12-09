@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { TodosCtx } from "../../contexts/todos";
-import { Item } from "../../models/Todos";
 
 
 const Header = () => {
