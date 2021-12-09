@@ -1,20 +1,21 @@
-# To-do-list-React
+# To-do-list-React (TypeScript & React Hooks)
 
-## Currently refactoring with TypeScript and React Hooks
-
-### Visit the previous wersion on Netlify
-
+### TRY IT ON NETLIFY
 https://todo-ado.netlify.app/
 
-### Functionalities
-* create categories
-* add items to cateogries
-* rename items / categories
+### TECH
+* TypeScript 
+* React (Custom hooks, Context, Reducer) 
+* Sass
+
+### FUNCTIONALITIES
+* create lists & add items to lists
+* edit lists / items
+* delete lists / items
 * mark items as complete
 * show / hide completed items
-* delete item / category
+* list displays the number of items it holds
 * local storage
 
-### Using
-* React.js
-* CSS3
+### WHAT I LEARNED
+As I started learning React I made this app with class components. I also designed it to look beautiful and intuitive to use. When I learned TypeScript I returned to completely refactor the app with TS and my new gained react knowledge. Using Context might be an overkill for such a small app, but I wanted to demonstrate my knowledge.
