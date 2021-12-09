@@ -1,6 +1,6 @@
 # To-do-list-React (TypeScript & React Hooks)
 
-### DEPLOYED
+### VISIT IT ON NETLIFY
 https://todo-ado.netlify.app/
 
 ### TECH
